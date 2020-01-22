@@ -11,5 +11,7 @@
     "**/.project": true,
     "**/.settings": true,
     "**/.factorypath": true
-  }
+  },
+  "editor.fontFamily": "Consolas, 'Courier New', monospace,Orbitron",
+  "explorer.incrementalNaming": "smart"
 }
