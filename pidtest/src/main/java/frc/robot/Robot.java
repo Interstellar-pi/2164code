@@ -45,6 +45,7 @@ public class Robot extends TimedRobot {
 
 
   private Joystick joy1 = new Joystick(0);
+  private Joystick fs = new Joystick(1);
   private Encoder encoder = new Encoder(0, 1, true);
   private final double kDriveTick2Feet = 1.0/360*Math.PI*4/12;
 
@@ -59,6 +60,15 @@ public class Robot extends TimedRobot {
   double lastError = 0;
   double error;
   double outputSpeed;
+
+
+@Override
+public void robotInit() {
+  fs.setXChannel(5);
+  fs.setYChannel(1);
+  fs.setZChannel(0);
+}
+
 
   @Override
 
@@ -77,9 +87,9 @@ public class Robot extends TimedRobot {
 
   public void autonomousPeriodic() {
 
-    if (joy1.getRawButton(1)) {
+    if (joy1.getRawButton(5)) {
       setpoint = 10;
-    } else if (joy1.getRawButton(2)) {
+    } else if (joy1.getRawButton(3)) {
       setpoint = 0;
     }
 
