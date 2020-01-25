@@ -16,4 +16,30 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+
+    public static class driveConstants {
+        public static final int rF = 1; //TalonSRX
+        public static final int rR = 2; //VictorSPX
+        public static final int lF = 3; //TalonSRX
+        public static final int lR = 4; //VictorSPX
+    }
+
+    public static class collectorConstants  {
+        public static final int intakemotor = 5; //TalonSRX
+        public static final int pitchmotor = 6; //TalonSRX
+
+    }
+
+    public static class liftConstants   {
+        public static final int extensionmotor = 7; //TalonSRX
+        public static final int winchmotor = 8; //TalonSRX
+    }
+
+    public static class wofConstants    {
+        public static final int spinner = 9; //Spark Max
+        public static final int pCM = 10;
+        public static final int[] arm = new int[]{0,1};
+    }
+
+
 }
