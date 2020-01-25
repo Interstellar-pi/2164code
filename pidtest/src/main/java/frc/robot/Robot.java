@@ -18,6 +18,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -55,6 +57,8 @@ public class Robot extends TimedRobot {
   double errorSum = 0;
   double lastTimestamp = 0;
   double lastError = 0;
+  double error;
+  double outputSpeed;
 
   @Override
 
@@ -80,7 +84,7 @@ public class Robot extends TimedRobot {
     }
 
     double sensorPosition = encoder.get() * kDriveTick2Feet;
-    double error = setpoint - sensorPosition;
+    error = setpoint - sensorPosition;
     double dt = Timer.getFPGATimestamp() - lastTimestamp;
 
     if (Math.abs(error) < iLimit) {
@@ -89,7 +93,7 @@ public class Robot extends TimedRobot {
 
 
     double errorRate = (error - lastError) / dt;
-    double outputSpeed = kP * error + kI * errorSum + kD * errorRate;
+    outputSpeed = kP * error + kI * errorSum + kD * errorRate;
 
     drive.arcadeDrive(-outputSpeed, 0);
 
@@ -98,6 +102,12 @@ public class Robot extends TimedRobot {
 
   }
 
+  @Override
+  public void robotPeriodic() {
+    SmartDashboard.putNumber("encoder value", encoder.get() * kDriveTick2Feet);
+    SmartDashboard.putNumber("Output Speed",outputSpeed);
+    SmartDashboard.putNumber("error", error);
+  }
 
   @Override
   public void teleopInit() {
@@ -105,6 +115,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
+    drive.arcadeDrive(joy1.getY(), joy1.getZ());
   }
 
   @Override
