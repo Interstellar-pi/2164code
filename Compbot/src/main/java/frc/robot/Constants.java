@@ -17,28 +17,39 @@ package frc.robot;
  */
 public final class Constants {
 
-    public static class driveConstants {
+    public static class DriveConstants {
         public static final int rF = 1; //TalonSRX
         public static final int rR = 2; //VictorSPX
         public static final int lF = 3; //TalonSRX
         public static final int lR = 4; //VictorSPX
     }
 
-    public static class collectorConstants  {
+    public static class CollectorConstants  {
         public static final int intakemotor = 5; //TalonSRX
         public static final int pitchmotor = 6; //TalonSRX
 
     }
 
-    public static class liftConstants   {
+    public static class LiftConstants   {
         public static final int extensionmotor = 7; //TalonSRX
         public static final int winchmotor = 8; //TalonSRX
     }
 
-    public static class wofConstants    {
+    public static class WOFConstants    {
         public static final int spinner = 9; //Spark Max
         public static final int pCM = 10;
         public static final int[] arm = new int[]{0,1};
+    }
+
+    public static class OIConstants {
+        public static final int xChannel = 0;
+        public static final int yChannel = 1;
+        public static final int zChannel = 5;
+        public static final int shootbtn = 1;
+        public static final int collectbtn = 3;
+        public static final int collectorup = 2;
+        public static final int collectordwn = 4;
+        public static final int WOFarmtoggle = 5;
     }
 
 
