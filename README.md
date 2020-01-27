@@ -17,5 +17,5 @@ CAN Assignments
     WinchMotor - TalonSRX(8)
 
   Wheel of Fortune
-    SpinMotor - SparkMax(9)
+    SpinMotor - SparkMAX(9)
     Double Solenoid - (0, 1)
