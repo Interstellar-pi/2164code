@@ -19,3 +19,4 @@ CAN Assignments
   Wheel of Fortune
     SpinMotor - SparkMAX(9)
     Double Solenoid - (0, 1)
+    Color Sensor - (I2C Port)
