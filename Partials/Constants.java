@@ -36,7 +36,7 @@ public final class Constants {
 
     public static class WoFConstants{
         public static final int CAN_Spin = 9; //SparkMAX
-        public static final int PCM_Extend = 0; //Double Solenoid Valve #1
-        public static final int PCM_Retract = 1; //Double Solenoid Valve #2
+        public static final int PCM_Port0 = 0; //Double Solenoid Valve #1
+        public static final int PCM_Port1 = 1; //Double Solenoid Valve #2
     }
 }
