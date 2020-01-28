@@ -41,5 +41,6 @@ public final class Constants {
     }
 
     public static class OIConstants{
+        public static final int JS1 = 0; //Joystick 1 Port
     }
 }
