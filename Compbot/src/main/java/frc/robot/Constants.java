@@ -25,23 +25,29 @@ public final class Constants {
     }
 
     public static class CollectorConstants  {
-        public static final int intakemotor = 5; //TalonSRX
+        public static final int rollermotor = 5; //TalonSRX
+            public static final boolean rollerinverted = false;
         public static final int pitchmotor = 6; //TalonSRX
+            public static final boolean pitchinverted = false;
 
     }
 
     public static class LiftConstants   {
         public static final int extensionmotor = 7; //TalonSRX
+            public static final boolean extensioninverted = false;
         public static final int winchmotor = 8; //TalonSRX
+            public static final boolean winchinverted = false;
     }
 
     public static class WOFConstants    {
         public static final int spinner = 9; //Spark Max
+            public static final boolean spinnerinverted = false;
         public static final int pCM = 10;
         public static final int[] arm = new int[]{0,1};
     }
 
     public static class OIConstants {
+        public static final int stick1 = 0;
         public static final int xChannel = 0;
         public static final int yChannel = 1;
         public static final int zChannel = 5;
@@ -50,6 +56,7 @@ public final class Constants {
         public static final int collectorup = 2;
         public static final int collectordwn = 4;
         public static final int WOFarmtoggle = 5;
+        public static final int WOFspin = 7;
     }
 
 

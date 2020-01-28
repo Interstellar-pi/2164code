@@ -7,24 +7,21 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-public class drivetrain extends SubsystemBase {
+public class lift extends SubsystemBase {
+  private WPI_TalonSRX m_extend = new WPI_TalonSRX(Constants.LiftConstants.extensionmotor);
+  private WPI_TalonSRX m_winch = new WPI_TalonSRX(Constants.LiftConstants.winchmotor);
+
   /**
-   * Creates a new drivetrain.
+   * Creates a new lift.
    */
+  public lift() {
 
-  SpeedControllerGroup right = new SpeedControllerGroup(new WPI_TalonSRX(Constants.DriveConstants.rF),new WPI_VictorSPX(Constants.DriveConstants.rR));
-  SpeedControllerGroup left = new SpeedControllerGroup(new WPI_TalonSRX(Constants.DriveConstants.lF),new WPI_VictorSPX(Constants.DriveConstants.lR));
-    DifferentialDrive drive = new DifferentialDrive(left, right);
-
-  public drivetrain() {
   }
 
   @Override
@@ -32,8 +29,21 @@ public class drivetrain extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public void drivectrl(Double x,Double z) {
-    drive.arcadeDrive(x, z);
-  }  
+  public void extend(Boolean inverted){
+    m_extend.setInverted(inverted);
+    m_extend.set(ControlMode.PercentOutput, 1);
+  }
+
+  public void retract(Boolean extendinverted, Boolean winchinverted){
+    m_extend.setInverted(extendinverted);
+    m_winch.setInverted(winchinverted);
+    m_extend.set(ControlMode.PercentOutput, -1);
+    m_winch.set(ControlMode.PercentOutput, 1);
+  }
+
+  public void idle(){
+    m_winch.stopMotor();
+    m_extend.stopMotor();
+  }
 
 }
