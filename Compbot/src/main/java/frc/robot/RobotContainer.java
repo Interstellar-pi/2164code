@@ -60,6 +60,8 @@ public class RobotContainer {
   public JoystickButton b_collectordwn = new JoystickButton(drivestick, Constants.OIConstants.collectordwn);
   public JoystickButton b_wofarmtoggle= new JoystickButton(drivestick, Constants.OIConstants.WOFarmtoggle);
   public JoystickButton b_wofspin =  new JoystickButton(drivestick, Constants.OIConstants.WOFspin);
+  public JoystickButton b_extend = new JoystickButton(drivestick, Constants.OIConstants.liftextend);
+  public JoystickButton b_climb = new JoystickButton(drivestick, Constants.OIConstants.liftclimb);
   
   
 
@@ -89,6 +91,9 @@ public class RobotContainer {
     b_collectorup.whenHeld(c_Collectorup);
     b_wofarmtoggle.whenPressed(c_Woftoggle);
     b_wofspin.whenPressed(c_Wofspin);
+    b_extend.whenHeld(c_Extendhook);
+    b_climb.whenHeld(c_Climb);
+
   }
 
 

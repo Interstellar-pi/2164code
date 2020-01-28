@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants.  This class should not be used for any other purpose.  All constants should be
@@ -57,6 +58,8 @@ public final class Constants {
         public static final int collectordwn = 4;
         public static final int WOFarmtoggle = 5;
         public static final int WOFspin = 7;
+        public static final int liftclimb = 10;
+        public static final int liftextend = 9;
     }
 
 
