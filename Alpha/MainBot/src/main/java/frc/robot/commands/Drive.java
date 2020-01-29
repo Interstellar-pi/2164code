@@ -19,6 +19,7 @@ public class Drive extends CommandBase {
   public Drive(DriveTrain subsytem){
     l_drivetrain = subsytem;
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(subsytem);
   }
 
   // Called when the command is initially scheduled.
