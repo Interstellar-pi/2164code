@@ -16,7 +16,8 @@ public class Drive extends CommandBase {
   /**
    * Creates a new Drive.
    */
-  public Drive() {
+  public Drive(DriveTrain subsytem){
+    l_drivetrain = subsytem;
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
