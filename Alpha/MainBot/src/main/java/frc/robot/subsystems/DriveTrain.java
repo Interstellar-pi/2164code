@@ -13,6 +13,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 import frc.robot.Constants.DriveConstants;
 
 public class DriveTrain extends SubsystemBase {
@@ -26,6 +27,12 @@ public class DriveTrain extends SubsystemBase {
   private final SpeedControllerGroup LDrive = new SpeedControllerGroup(LFMotor, LRMotor);
 
   private final DifferentialDrive MainDrive = new DifferentialDrive(LDrive, RDrive);
+
+  public void Drive(double x, double z) {
+
+    MainDrive.arcadeDrive(x,z, false);
+    
+  }
 
   public DriveTrain() {
 

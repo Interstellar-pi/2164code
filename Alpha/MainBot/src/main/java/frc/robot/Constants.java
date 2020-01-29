@@ -38,6 +38,7 @@ public final class Constants {
         public static final int CAN_Spin = 9; //SparkMAX
         public static final int PCM_Port0 = 0; //Double Solenoid Valve #1
         public static final int PCM_Port1 = 1; //Double Solenoid Valve #2
+        public static final int[] PCM_WoFSol = {0,1}; //WoF Solenoid
     }
 
     public static class OIConstants{
