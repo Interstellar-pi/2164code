@@ -67,7 +67,7 @@ public class RobotContainer {
 
   public RobotContainer() {
     s_Drivetrain.setDefaultCommand(new RunCommand(() -> s_Drivetrain.drivectrl(drivestick.getY(), -drivestick.getZ()), s_Drivetrain));
-    s_Collector.setDefaultCommand(c_Liftidle);
+    s_Lift.setDefaultCommand(c_Liftidle);
 
 
 

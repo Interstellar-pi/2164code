@@ -7,7 +7,11 @@
 
 package frc.robot;
 
+import java.util.Map;
+
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
@@ -31,6 +35,68 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
+
+    Shuffleboard.getTab("Auton Selection")
+        .add("Starting Left", false)
+          .withWidget(BuiltInWidgets.kToggleSwitch)
+          .withSize(1, 1)
+          .withPosition(1, 1);
+
+    Shuffleboard.getTab("Auton Selection")
+      .add("Starting Center", false)
+        .withWidget(BuiltInWidgets.kToggleSwitch)
+        .withSize(1, 1)
+        .withPosition(2, 1);
+    
+    Shuffleboard.getTab("Auton Selection")
+      .add("Starting Right", false)
+        .withWidget(BuiltInWidgets.kToggleSwitch)
+        .withSize(1, 1)
+        .withPosition(3, 1);
+    
+    Shuffleboard.getTab("Auton Selection")
+      .add("Other", false)
+        .withWidget(BuiltInWidgets.kToggleSwitch)
+        .withSize(1, 1)
+        .withPosition(4, 1);
+
+    Shuffleboard.getTab("Auton Selection")
+      .add("Bail Left", false)
+        .withWidget(BuiltInWidgets.kToggleSwitch)
+        .withSize(1, 1)
+        .withPosition(1, 3);
+
+    Shuffleboard.getTab("Auton Selection")
+      .add("Bail Center", false)
+        .withWidget(BuiltInWidgets.kToggleSwitch)
+        .withSize(1, 1)
+        .withPosition(2, 3);
+
+    Shuffleboard.getTab("Auton Selection")
+      .add("Bail Right", false)
+        .withWidget(BuiltInWidgets.kToggleSwitch)
+        .withSize(1, 1)
+        .withPosition(3, 3);
+
+    Shuffleboard.getTab("Auton Selection")
+      .add("No Bail", false)
+        .withWidget(BuiltInWidgets.kToggleSwitch)
+        .withSize(1, 1)
+        .withPosition(4, 3);
+    
+    Shuffleboard.getTab("Auton Selection")
+      .add("Delay Start", 0)
+        .withWidget(BuiltInWidgets.kNumberSlider)
+        .withProperties(Map.of("Min", 0, "Max", 13))
+        .withSize(2, 1)
+        .withPosition(1, 4);
+    
+
+      
+                
+      
+  
+
   }
 
   /**
