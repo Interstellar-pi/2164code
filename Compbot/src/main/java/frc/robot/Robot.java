@@ -42,6 +42,7 @@ public class Robot extends TimedRobot {
   public NetworkTableEntry n_BailRight;
   public NetworkTableEntry n_NoBail;
   public NetworkTableEntry n_StartDelay;
+  public NetworkTableEntry n_DelayValue;
   public NetworkTableEntry n_ColorNeeded;
   public NetworkTableEntry n_ColorDetected;
 
@@ -130,7 +131,13 @@ public class Robot extends TimedRobot {
       .withPosition(1, 3)
       .getEntry();
 
-    
+      n_DelayValue = autonTab
+      .add("Delay Value", 0)
+      .withWidget(BuiltInWidgets.kTextView)
+      .withSize(1, 1)
+      .withPosition(3, 3)
+      .getEntry();
+
      n_ColorNeeded = mainTab
       .add("Target Color", "Unrecived")
         .withWidget(BuiltInWidgets.kTextView)
@@ -205,6 +212,8 @@ public class Robot extends TimedRobot {
 
       n_ColorNeeded.setString(gameData);
       n_ColorDetected.setString(colorString);
+      n_DelayValue.setString(n_StartDelay.getString("0"));
+
 
 
     CommandScheduler.getInstance().run();
