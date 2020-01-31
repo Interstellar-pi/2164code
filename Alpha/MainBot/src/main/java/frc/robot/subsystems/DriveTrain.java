@@ -28,9 +28,9 @@ public class DriveTrain extends SubsystemBase {
 
   private final DifferentialDrive MainDrive = new DifferentialDrive(LDrive, RDrive);
 
-  public void Drive(double x, double z) {
+  public void Drive(double y, double z) {
 
-    MainDrive.arcadeDrive(x,z, false);
+    MainDrive.arcadeDrive(y,z, false);
     
   }
 
