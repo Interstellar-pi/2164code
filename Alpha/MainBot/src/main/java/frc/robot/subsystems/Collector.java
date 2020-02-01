@@ -29,9 +29,6 @@ public class Shooter extends SubsystemBase {
     IntakeMotor.set(ControlMode.PercentOutput, 0);
   }
 
-  /**
-   * Creates a new Shooter.
-   */
   public Shooter() {
 
   }

@@ -13,7 +13,6 @@ import frc.robot.subsystems.Shooter;
 public class Intake extends CommandBase {
 
   private final Shooter l_shooter;
-
   /**
    * Creates a new Intake.
    */
