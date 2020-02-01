@@ -13,13 +13,11 @@ import frc.robot.subsystems.WoF;
 public class WoFSpin extends CommandBase {
 
   private final WoF l_wof;
-  private final boolean l_button;
   /**
    * Creates a new WoFSpin.
    */
-  public WoFSpin(WoF subsystem, Boolean isActive) {
+  public WoFSpin(WoF subsystem) {
     l_wof = subsystem;
-    l_button = isActive;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -32,7 +30,7 @@ public class WoFSpin extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_wof.WoFSpin(l_button);
+    l_wof.WoFSpin();
   }
 
   // Called once the command ends or is interrupted.

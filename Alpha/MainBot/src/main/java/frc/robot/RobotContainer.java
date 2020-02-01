@@ -14,15 +14,14 @@ import frc.robot.Constants.OIConstants;
 import frc.robot.commands.ArmDown;
 import frc.robot.commands.ArmUp;
 import frc.robot.commands.Drive;
-import frc.robot.commands.Intake;
 import frc.robot.commands.LiftExtend;
 import frc.robot.commands.LiftWinch;
-import frc.robot.commands.Shoot;
 import frc.robot.commands.WoFArm;
 import frc.robot.commands.WoFSpin;
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Lift;
+import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.WoF;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -49,16 +48,15 @@ public class RobotContainer {
   private final DriveTrain rc_DriveTrain = new DriveTrain();
   private final Drive rc_Drive = new Drive(rc_DriveTrain, JS1);
   private final Arm rc_Arm = new Arm();
-  private final Shoot rc_Shoot = new Shoot(rc_Arm, JS1.getRawButton(OIConstants.ShootButton));
-  private final Intake rc_Intake = new Intake(rc_Arm, JS1.getRawButton(OIConstants.IntakeButton));
-  private final ArmUp rc_ArmUp = new ArmUp(rc_Arm, JS1.getRawButton(OIConstants.ArmUpButton));
-  private final ArmDown rc_ArmDown = new ArmDown(rc_Arm, JS1.getRawButton(OIConstants.ArmDownButton));
+  private final ArmUp rc_ArmUp = new ArmUp(rc_Arm);
+  private final ArmDown rc_ArmDown = new ArmDown(rc_Arm);
+  private final Shooter rc_Shooter = new Shooter();
   private final Lift rc_Lift = new Lift();
-  private final LiftExtend rc_LiftExtend = new LiftExtend(rc_Lift, JS1.getRawButton(OIConstants.LiftExtensionButton));
-  private final LiftWinch rc_LiftWinch = new LiftWinch(rc_Lift, JS1.getRawButton(OIConstants.LiftWinchButton));
+  private final LiftExtend rc_LiftExtend = new LiftExtend(rc_Lift);
+  private final LiftWinch rc_LiftWinch = new LiftWinch(rc_Lift);
   private final WoF rc_WoF = new WoF();
   private final WoFArm rc_WoFArm = new WoFArm(rc_WoF);
-  private final WoFSpin rc_WoFSpin = new WoFSpin(rc_WoF, JS1.getRawButton(OIConstants.WoFSpinButton));
+  private final WoFSpin rc_WoFSpin = new WoFSpin(rc_WoF);
 
 
 

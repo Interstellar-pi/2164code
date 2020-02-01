@@ -20,12 +20,12 @@ public class WoF extends SubsystemBase {
   private final CANSparkMax SpinMotor = new CANSparkMax(WoFConstants.CAN_Spin, MotorType.kBrushed);
   private final DoubleSolenoid WoFSolenoid = new DoubleSolenoid(WoFConstants.PCM_Port0, WoFConstants.PCM_Port1);
 
-  public void WoFSpin(boolean active){
-    if(active == true){
-      SpinMotor.set(0.5);
-    }else if(active != true){
-      SpinMotor.set(0);
-    }
+  public void WoFSpin(){
+    SpinMotor.set(0.5);
+  }
+
+  public void WoFIdle(){
+    SpinMotor.set(0);
   }
 
   public void WoFSolenoid(){

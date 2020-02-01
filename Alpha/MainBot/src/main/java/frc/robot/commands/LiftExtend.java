@@ -13,13 +13,11 @@ import frc.robot.subsystems.Lift;
 public class LiftExtend extends CommandBase {
 
   private final Lift l_lift;
-  private final boolean l_button;
   /**
    * Creates a new LiftExtend.
    */
-  public LiftExtend(Lift subsystem, Boolean isActive) {
+  public LiftExtend(Lift subsystem) {
     l_lift = subsystem;
-    l_button = isActive;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -32,7 +30,7 @@ public class LiftExtend extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_lift.LiftExtend(l_button);
+    l_lift.LiftExtend();
   }
 
   // Called once the command ends or is interrupted.

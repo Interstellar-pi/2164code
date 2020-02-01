@@ -18,20 +18,20 @@ public class Lift extends SubsystemBase {
   private final WPI_TalonSRX ExtensionMotor = new WPI_TalonSRX(LiftConstants.CAN_Extension);
   private final WPI_TalonSRX WinchMotor = new WPI_TalonSRX(LiftConstants.CAN_Winch);
 
-  public void LiftExtend(boolean active){
-    if(active == true){
-      ExtensionMotor.set(ControlMode.PercentOutput, 0.5);
-    }else if(active != true){
-      ExtensionMotor.set(ControlMode.PercentOutput, 0);
-    }
+  public void LiftExtend(){
+    ExtensionMotor.set(ControlMode.PercentOutput, 0.5);
   }
 
-  public void LiftWinch(boolean active){
-    if(active == true){
-      WinchMotor.set(ControlMode.PercentOutput, 0.5);
-    }else if(active != true){
-      WinchMotor.set(ControlMode.PercentOutput, 0);
-    }
+  public void LiftExtendIdle(){
+    ExtensionMotor.set(ControlMode.PercentOutput, 0);
+  }
+
+  public void LiftWinch(){
+    WinchMotor.set(ControlMode.PercentOutput, 0.5);
+  }
+
+  public void LiftWinchIdle(){
+    WinchMotor.set(ControlMode.PercentOutput, 0);
   }
 
   public Lift() {

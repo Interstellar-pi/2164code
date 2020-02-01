@@ -13,13 +13,11 @@ import frc.robot.subsystems.Arm;
 public class ArmDown extends CommandBase {
 
   private final Arm l_arm;
-  private final boolean l_button;
   /**
    * Creates a new ArmDown.
    */
-  public ArmDown(Arm subsystem, Boolean isActive) {
+  public ArmDown(Arm subsystem) {
     l_arm = subsystem;
-    l_button = isActive;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -32,7 +30,7 @@ public class ArmDown extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_arm.ArmDown(l_button);
+    l_arm.ArmDown();
   }
 
   // Called once the command ends or is interrupted.

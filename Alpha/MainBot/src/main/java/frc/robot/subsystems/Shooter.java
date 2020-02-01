@@ -5,23 +5,32 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.subsystems;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Arm;
+import frc.robot.Constants.ArmConstants;
 
-public class Intake extends CommandBase {
+public class Shooter extends CommandBase {
 
-  private final Arm l_arm;
-  private final boolean l_button;
-  /**
-   * Creates a new Intake.
-   */
-  public Intake(Arm subsytem, Boolean isActive) {
-    l_arm = subsytem;
-    l_button = isActive;
+  private final WPI_TalonSRX IntakeMotor = new WPI_TalonSRX(ArmConstants.CAN_Intake);
+
+  public void Intake(){
+    IntakeMotor.set(ControlMode.PercentOutput, 0.5);
+  }
+
+  public void Shoot(){
+    IntakeMotor.set(ControlMode.PercentOutput, -0.5);
+  }
+
+  public void ShooterIdle(){
+    IntakeMotor.set(ControlMode.PercentOutput, 0);
+  }
+
+  public Shooter() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsytem);
   }
 
   // Called when the command is initially scheduled.
@@ -32,7 +41,6 @@ public class Intake extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_arm.Intake(l_button);
   }
 
   // Called once the command ends or is interrupted.

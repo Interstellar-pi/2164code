@@ -13,13 +13,11 @@ import frc.robot.subsystems.Lift;;
 public class LiftWinch extends CommandBase {
 
   private final Lift l_lift;
-  private final boolean l_button;
   /**
    * Creates a new LiftWinch.
    */
-  public LiftWinch(Lift subsystem, Boolean isActive) {
+  public LiftWinch(Lift subsystem) {
     l_lift = subsystem;
-    l_button = isActive;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -32,7 +30,7 @@ public class LiftWinch extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_lift.LiftWinch(l_button);
+    l_lift.LiftWinch();
   }
 
   // Called once the command ends or is interrupted.
