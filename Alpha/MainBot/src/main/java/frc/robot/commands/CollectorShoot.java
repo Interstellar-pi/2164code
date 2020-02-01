@@ -8,16 +8,16 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Collector;
 
-public class Shoot extends CommandBase {
+public class CollectorShoot extends CommandBase {
 
-  private Shooter l_shooter;
+  private Collector l_collector;
   /**
    * Creates a new Shoot.
    */
-  public Shoot(Shooter subsystem) {
-    l_shooter = subsystem;
+  public CollectorShoot(Collector subsystem) {
+    l_collector = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -30,7 +30,7 @@ public class Shoot extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_shooter.Shoot();
+    l_collector.Shoot();
   }
 
   // Called once the command ends or is interrupted.

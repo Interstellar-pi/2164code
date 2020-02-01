@@ -10,13 +10,13 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.WoFArm;
 
-public class WoFArmMove extends CommandBase {
+public class WoFArmToggle extends CommandBase {
 
   private final WoFArm l_wofarm;
   /**
    * Creates a new WoFPiston.
    */
-  public WoFArmMove(WoFArm subsystem) {
+  public WoFArmToggle(WoFArm subsystem) {
     l_wofarm = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);

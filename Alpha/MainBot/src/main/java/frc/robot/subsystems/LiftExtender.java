@@ -15,7 +15,7 @@ import frc.robot.Constants.LiftConstants;
 
 public class LiftExtender extends SubsystemBase {
 
-  private final WPI_TalonSRX ExtensionMotor = new WPI_TalonSRX(LiftConstants.CAN_Extension);
+  private final WPI_TalonSRX ExtensionMotor = new WPI_TalonSRX(LiftConstants.CAN_Extend);
 
   public void LiftExtend(){
     ExtensionMotor.set(ControlMode.PercentOutput, 0.5);

@@ -30,7 +30,7 @@ public final class Constants {
     }
     
     public static class LiftConstants{
-        public static final int CAN_Extension = 7; //TalonSRX
+        public static final int CAN_Extend = 7; //TalonSRX
         public static final int CAN_Winch = 8; //TalonSRX
     }
 
@@ -43,13 +43,13 @@ public final class Constants {
 
     public static class OIConstants{
         public static final int JS1 = 0; //Joystick 1 Port
-        public static final int ShootButton = 1; //Joystick 1 Shoot
-        public static final int IntakeButton = 3; //Joystick 1 Intake
         public static final int ArmUpButton = 2; //Joystick 1 ArmUp
         public static final int ArmDownButton = 4; //Joystick 1 ArmDown
-        public static final int WoFArmButton = 5; //Joystick 1 WoFArm
-        public static final int WoFSpinButton = 7; //Joystick 1 WoFSpin
-        public static final int LiftExtensionButton = 9; //Joystick 1 LiftExtension
+        public static final int CollectorIntakeButton = 3; //Joystick 1 CollectorIntake
+        public static final int CollectorShootButton = 1; //Joystick 1 CollectorShoot
+        public static final int LiftExtendButton = 9; //Joystick 1 LiftExtend
         public static final int LiftWinchButton = 10; //Joystick 1 LiftWinch
+        public static final int WoFArmToggleButton = 5; //Joystick 1 WoFArmToggle
+        public static final int WoFSpinButton = 7; //Joystick 1 WoFSpin
     }
 }

@@ -13,7 +13,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.ArmConstants;
 
-public class Shooter extends SubsystemBase {
+public class Collector extends SubsystemBase {
 
   private final WPI_TalonSRX IntakeMotor = new WPI_TalonSRX(ArmConstants.CAN_Intake);
 
@@ -25,11 +25,11 @@ public class Shooter extends SubsystemBase {
     IntakeMotor.set(ControlMode.PercentOutput, -0.5);
   }
 
-  public void ShooterIdle(){
+  public void CollecterIdle(){
     IntakeMotor.set(ControlMode.PercentOutput, 0);
   }
 
-  public Shooter() {
+  public Collector() {
 
   }
 

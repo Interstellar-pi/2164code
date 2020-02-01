@@ -13,14 +13,20 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.Constants.OIConstants;
 import frc.robot.commands.ArmDown;
 import frc.robot.commands.ArmUp;
+import frc.robot.commands.CollectorIntake;
+import frc.robot.commands.CollectorShoot;
 import frc.robot.commands.Drive;
 import frc.robot.commands.LiftExtend;
 import frc.robot.commands.LiftWinch;
 import frc.robot.commands.WoFArm;
+import frc.robot.commands.WoFArmToggle;
 import frc.robot.commands.WoFSpin;
 import frc.robot.subsystems.Arm;
+import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Lift;
+import frc.robot.subsystems.LiftExtender;
+import frc.robot.subsystems.LiftWincher;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.WoF;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -35,27 +41,30 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 public class RobotContainer {
   //Define OI here
   public Joystick JS1 = new Joystick(OIConstants.JS1);
-  public JoystickButton ShootButton = new JoystickButton(JS1, OIConstants.ShootButton);
-  public JoystickButton IntakeButton = new JoystickButton(JS1, OIConstants.IntakeButton);
-  public JoystickButton ArmUpButton = new JoystickButton(JS1, OIConstants.ArmUpButton);
   public JoystickButton ArmDownButton = new JoystickButton(JS1, OIConstants.ArmDownButton);
-  public JoystickButton LiftExtendButton = new JoystickButton(JS1, OIConstants.LiftExtensionButton);
+  public JoystickButton ArmUpButton = new JoystickButton(JS1, OIConstants.ArmUpButton);
+  public JoystickButton CollectorShootButton = new JoystickButton(JS1, OIConstants.CollectorShootButton);
+  public JoystickButton CollectorIntakeButton = new JoystickButton(JS1, OIConstants.CollectorIntakeButton);
+  public JoystickButton LiftExtendButton = new JoystickButton(JS1, OIConstants.LiftExtendButton);
   public JoystickButton LiftWinchButton = new JoystickButton(JS1, OIConstants.LiftWinchButton);
-  public JoystickButton WoFArmButton = new JoystickButton(JS1, OIConstants.WoFArmButton);
+  public JoystickButton WoFArmToggleButton = new JoystickButton(JS1, OIConstants.WoFArmToggleButton);
   public JoystickButton WoFSpinButton = new JoystickButton(JS1, OIConstants.WoFSpinButton);
 
   // The robot's subsystems and commands are defined here...
+  private final Arm rc_Arm = new Arm();
+  private final ArmDown rc_ArmDown = new ArmDown(rc_Arm);
+  private final ArmUp rc_ArmUp = new ArmUp(rc_Arm);
+  private final Collector rc_Collector = new Collector();
+  private final CollectorIntake rc_CollectorIntake = new CollectorIntake(rc_Collector);
+  private final CollectorShoot rc_CollectorShoot = new CollectorShoot(rc_Collector);
   private final DriveTrain rc_DriveTrain = new DriveTrain();
   private final Drive rc_Drive = new Drive(rc_DriveTrain, JS1);
-  private final Arm rc_Arm = new Arm();
-  private final ArmUp rc_ArmUp = new ArmUp(rc_Arm);
-  private final ArmDown rc_ArmDown = new ArmDown(rc_Arm);
-  private final Shooter rc_Shooter = new Shooter();
-  private final Lift rc_Lift = new Lift();
-  private final LiftExtend rc_LiftExtend = new LiftExtend(rc_Lift);
-  private final LiftWinch rc_LiftWinch = new LiftWinch(rc_Lift);
+  private final LiftExtender rc_LiftExtender = new LiftExtender();
+  private final LiftExtend rc_LiftExtend = new LiftExtend(rc_LiftExtender);
+  private final LiftWincher rc_LiftWincher = new LiftWincher();
+  private final LiftWinch rc_LiftWinch = new LiftWinch(rc_LiftWincher);
+  private final WoFArm rc_WoFArm = new WoFArm();
   private final WoF rc_WoF = new WoF();
-  private final WoFArm rc_WoFArm = new WoFArm(rc_WoF);
   private final WoFSpin rc_WoFSpin = new WoFSpin(rc_WoF);
 
 
