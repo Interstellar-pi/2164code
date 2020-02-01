@@ -16,10 +16,38 @@ import frc.robot.Constants.ArmConstants;
 public class Arm extends SubsystemBase {
 
   private final WPI_TalonSRX IntakeMotor = new WPI_TalonSRX(ArmConstants.CAN_Intake);
-  private final WPI_TalonSRX WinchMotor = new WPI_TalonSRX(ArmConstants.CAN_Pitch);
+  private final WPI_TalonSRX PitchMotor = new WPI_TalonSRX(ArmConstants.CAN_Pitch);
 
-  public void Intake(){
-    IntakeMotor.set(ControlMode.PercentOutput, 0.5);
+  public void Intake(boolean active){
+    if(active == true){
+      IntakeMotor.set(ControlMode.PercentOutput, 0.5);
+    }else if(active != true){
+      IntakeMotor.set(ControlMode.PercentOutput, 0);
+    }
+  }
+
+  public void Shoot(boolean active){
+    if(active == true){
+      IntakeMotor.set(ControlMode.PercentOutput, -0.5);
+    }else if(active != true){
+      IntakeMotor.set(ControlMode.PercentOutput, 0);
+    }
+  }
+
+  public void ArmUp(boolean active){
+    if(active == true){
+      PitchMotor.set(ControlMode.PercentOutput, 0.5);
+    }else if (active != true){
+      PitchMotor.set(ControlMode.PercentOutput, 0);
+    }
+  }
+
+  public void ArmDown(boolean active){
+    if(active == true){
+      PitchMotor.set(ControlMode.PercentOutput, -0.5);
+    }else if (active != true){
+      PitchMotor.set(ControlMode.PercentOutput, 0);
+    }
   }
 
   public Arm() {
