@@ -18,9 +18,9 @@ public class Drive extends CommandBase {
   /**
    * Creates a new Drive.
    */
-  public Drive(DriveTrain subsytem, Joystick JS1){
+  public Drive(DriveTrain subsytem, Joystick joystick){
     l_drivetrain = subsytem;
-    l_joystick = JS1;
+    l_joystick = joystick;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsytem);
   }
