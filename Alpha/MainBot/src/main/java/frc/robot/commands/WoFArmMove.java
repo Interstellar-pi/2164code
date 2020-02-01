@@ -8,16 +8,16 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.WoF;
+import frc.robot.subsystems.WoFArm;
 
-public class WoFArm extends CommandBase {
+public class WoFArmMove extends CommandBase {
 
-  private final WoF l_wof;
+  private final WoFArm l_wofarm;
   /**
    * Creates a new WoFPiston.
    */
-  public WoFArm(WoF subsystem) {
-    l_wof = subsystem;
+  public WoFArmMove(WoFArm subsystem) {
+    l_wofarm = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -30,7 +30,7 @@ public class WoFArm extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_wof.WoFSolenoid();
+    l_wofarm.WoFSolenoid();
   }
 
   // Called once the command ends or is interrupted.
