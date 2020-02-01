@@ -7,20 +7,20 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Arm;
 
-public class Drive extends CommandBase {
+public class Intake extends CommandBase {
 
-  private final DriveTrain l_drivetrain;
-  private final Joystick l_joystick;
+  private final Arm l_arm;
+  private final boolean l_button;
   /**
-   * Creates a new Drive.
+   * Creates a new Intake.
    */
-  public Drive(DriveTrain subsytem, Joystick joystick) {
-    l_drivetrain = subsytem;
-    l_joystick = joystick;
+  public Intake(Arm subsytem, Boolean isActive) {
+    l_arm = subsytem;
+    l_button = isActive;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsytem);
   }
@@ -33,7 +33,7 @@ public class Drive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_drivetrain.Drive(l_joystick.getY(), l_joystick.getZ());
+    l_arm.Intake(l_button);
   }
 
   // Called once the command ends or is interrupted.

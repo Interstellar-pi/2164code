@@ -11,9 +11,11 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.Drive;
+import frc.robot.commands.Intake;
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -24,11 +26,15 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class RobotContainer {
   //Define OI here
   public Joystick JS1 = new Joystick(Constants.OIConstants.JS1);
+  public JoystickButton ShootButton = new JoystickButton(JS1, Constants.OIConstants.ShootButton);
+  public JoystickButton IntakeButton = new JoystickButton(JS1, Constants.OIConstants.IntakeButton);
 
   // The robot's subsystems and commands are defined here...
   private final DriveTrain rc_DriveTrain = new DriveTrain();
   private final Drive rc_Drive = new Drive(rc_DriveTrain, JS1);
   private final Arm rc_Arm = new Arm();
+  
+  private final Intake rc_Intake = new Intake(rc_Arm, JS1.getRawButton(Constants.OIConstants.IntakeButton));
 
 
 

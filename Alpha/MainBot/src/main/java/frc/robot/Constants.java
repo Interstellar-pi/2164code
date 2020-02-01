@@ -43,5 +43,7 @@ public final class Constants {
 
     public static class OIConstants{
         public static final int JS1 = 0; //Joystick 1 Port
+        public static final int ShootButton = 1; //Joystick 1 Shoot
+        public static final int IntakeButton = 2; //Joystick 1 Intake
     }
 }
