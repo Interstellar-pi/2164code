@@ -7,9 +7,34 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants.WoFConstants;
+
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 public class WoF extends SubsystemBase {
+
+  private final CANSparkMax SpinMotor = new CANSparkMax(WoFConstants.CAN_Spin, MotorType.kBrushed);
+  private final DoubleSolenoid WoFSolenoid = new DoubleSolenoid(WoFConstants.PCM_Port0, WoFConstants.PCM_Port1);
+
+  public void WoFSpin(boolean active){
+    if(active == true){
+      SpinMotor.set(0.5);
+    }else if(active != true){
+      SpinMotor.set(0);
+    }
+  }
+
+  public void WoFSolenoid(){
+    if(WoFSolenoid.get() == Value.kForward){
+      WoFSolenoid.set(Value.kReverse);
+    }else{
+      WoFSolenoid.set(Value.kForward);
+    }
+  }
 
   public WoF() {
 

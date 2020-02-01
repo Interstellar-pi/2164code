@@ -8,20 +8,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Arm;
+import frc.robot.subsystems.WoF;
 
-public class Intake extends CommandBase {
+public class WoFArm extends CommandBase {
 
-  private final Arm l_arm;
-  private final boolean l_button;
+  private final WoF l_wof;
   /**
-   * Creates a new Intake.
+   * Creates a new WoFPiston.
    */
-  public Intake(Arm subsytem, Boolean isActive) {
-    l_arm = subsytem;
-    l_button = isActive;
+  public WoFArm(WoF subsystem) {
+    l_wof = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsytem);
+    addRequirements(subsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -32,7 +30,7 @@ public class Intake extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_arm.Intake(l_button);
+    l_wof.WoFSolenoid();
   }
 
   // Called once the command ends or is interrupted.

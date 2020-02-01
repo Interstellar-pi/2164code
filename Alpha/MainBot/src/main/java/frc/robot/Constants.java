@@ -38,12 +38,18 @@ public final class Constants {
         public static final int CAN_Spin = 9; //SparkMAX
         public static final int PCM_Port0 = 0; //Double Solenoid Valve #1
         public static final int PCM_Port1 = 1; //Double Solenoid Valve #2
-        public static final int[] PCM_WoFSol = {0,1}; //WoF Solenoid
+        public static final int[] PCM_WoFSol = new int[2]; //WoF Solenoid
     }
 
     public static class OIConstants{
         public static final int JS1 = 0; //Joystick 1 Port
         public static final int ShootButton = 1; //Joystick 1 Shoot
-        public static final int IntakeButton = 2; //Joystick 1 Intake
+        public static final int IntakeButton = 3; //Joystick 1 Intake
+        public static final int ArmUpButton = 2; //Joystick 1 ArmUp
+        public static final int ArmDownButton = 4; //Joystick 1 ArmDown
+        public static final int WoFArmButton = 5; //Joystick 1 WoFArm
+        public static final int WoFSpinButton = 7; //Joystick 1 WoFSpin
+        public static final int LiftExtensionButton = 9; //Joystick 1 LiftExtension
+        public static final int LiftWinchButton = 10; //Joystick 1 LiftWinch
     }
 }
