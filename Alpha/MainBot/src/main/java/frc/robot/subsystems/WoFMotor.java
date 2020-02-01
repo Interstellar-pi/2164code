@@ -13,7 +13,7 @@ import frc.robot.Constants.WoFConstants;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-public class WoF extends SubsystemBase {
+public class WoFMotor extends SubsystemBase {
 
   private final CANSparkMax SpinMotor = new CANSparkMax(WoFConstants.CAN_Spin, MotorType.kBrushed);
 
@@ -25,7 +25,7 @@ public class WoF extends SubsystemBase {
     SpinMotor.set(0);
   }
 
-  public WoF() {
+  public WoFMotor() {
 
   }
 

@@ -50,6 +50,6 @@ public final class Constants {
         public static final int LiftExtendButton = 9; //Joystick 1 LiftExtend
         public static final int LiftWinchButton = 10; //Joystick 1 LiftWinch
         public static final int WoFArmToggleButton = 5; //Joystick 1 WoFArmToggle
-        public static final int WoFSpinButton = 7; //Joystick 1 WoFSpin
+        public static final int WoFMotorSpinButton = 7; //Joystick 1 WoFMotorSpin
     }
 }

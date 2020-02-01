@@ -8,16 +8,16 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.WoF;
+import frc.robot.subsystems.WoFMotor;
 
-public class WoFSpin extends CommandBase {
+public class WoFMotorSpin extends CommandBase {
 
-  private final WoF l_wof;
+  private final WoFMotor l_wofmotor;
   /**
    * Creates a new WoFSpin.
    */
-  public WoFSpin(WoF subsystem) {
-    l_wof = subsystem;
+  public WoFMotorSpin(WoFMotor subsystem) {
+    l_wofmotor = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -30,7 +30,7 @@ public class WoFSpin extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_wof.WoFSpin();
+    l_wofmotor.WoFSpin();
   }
 
   // Called once the command ends or is interrupted.
