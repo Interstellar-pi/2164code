@@ -8,16 +8,16 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Lift;
+import frc.robot.subsystems.LiftExtender;
 
 public class LiftExtend extends CommandBase {
 
-  private final Lift l_lift;
+  private final LiftExtender l_liftextender;
   /**
    * Creates a new LiftExtend.
    */
-  public LiftExtend(Lift subsystem) {
-    l_lift = subsystem;
+  public LiftExtend(LiftExtender subsystem) {
+    l_liftextender = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -30,7 +30,7 @@ public class LiftExtend extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_lift.LiftExtend();
+    l_liftextender.LiftExtend();
   }
 
   // Called once the command ends or is interrupted.

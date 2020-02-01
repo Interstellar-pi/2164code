@@ -8,16 +8,16 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Lift;;
+import frc.robot.subsystems.LiftWincher;
 
 public class LiftWinch extends CommandBase {
 
-  private final Lift l_lift;
+  private final LiftWincher l_liftwincher;
   /**
    * Creates a new LiftWinch.
    */
-  public LiftWinch(Lift subsystem) {
-    l_lift = subsystem;
+  public LiftWinch(LiftWincher subsystem) {
+    l_liftwincher = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -30,7 +30,7 @@ public class LiftWinch extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_lift.LiftWinch();
+    l_liftwincher.LiftWinch();
   }
 
   // Called once the command ends or is interrupted.
