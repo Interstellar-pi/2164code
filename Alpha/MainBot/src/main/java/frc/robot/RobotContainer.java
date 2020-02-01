@@ -12,13 +12,18 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.Constants.OIConstants;
 import frc.robot.commands.ArmDown;
+import frc.robot.commands.ArmIdle;
 import frc.robot.commands.ArmUp;
+import frc.robot.commands.CollectorIdle;
 import frc.robot.commands.CollectorIntake;
 import frc.robot.commands.CollectorShoot;
 import frc.robot.commands.Drive;
 import frc.robot.commands.LiftExtend;
+import frc.robot.commands.LiftExtenderIdle;
 import frc.robot.commands.LiftWinch;
+import frc.robot.commands.LiftWincherIdle;
 import frc.robot.commands.WoFArmToggle;
+import frc.robot.commands.WoFMotorIdle;
 import frc.robot.commands.WoFMotorSpin;
 import frc.robot.subsystems.WoFArm;
 import frc.robot.subsystems.WoFMotor;
@@ -46,24 +51,29 @@ public class RobotContainer {
   public JoystickButton LiftExtendButton = new JoystickButton(JS1, OIConstants.LiftExtendButton);
   public JoystickButton LiftWinchButton = new JoystickButton(JS1, OIConstants.LiftWinchButton);
   public JoystickButton WoFArmToggleButton = new JoystickButton(JS1, OIConstants.WoFArmToggleButton);
-  public JoystickButton WoFSpinButton = new JoystickButton(JS1, OIConstants.WoFMotorSpinButton);
+  public JoystickButton WoFMotorSpinButton = new JoystickButton(JS1, OIConstants.WoFMotorSpinButton);
 
   // The robot's subsystems and commands are defined here...
   private final Arm rc_Arm = new Arm();
   private final ArmDown rc_ArmDown = new ArmDown(rc_Arm);
+  private final ArmIdle rc_ArmIdle = new ArmIdle(rc_Arm);
   private final ArmUp rc_ArmUp = new ArmUp(rc_Arm);
   private final Collector rc_Collector = new Collector();
+  private final CollectorIdle rc_CollectorIdle = new CollectorIdle(rc_Collector);
   private final CollectorIntake rc_CollectorIntake = new CollectorIntake(rc_Collector);
   private final CollectorShoot rc_CollectorShoot = new CollectorShoot(rc_Collector);
   private final DriveTrain rc_DriveTrain = new DriveTrain();
   private final Drive rc_Drive = new Drive(rc_DriveTrain, JS1);
   private final LiftExtender rc_LiftExtender = new LiftExtender();
   private final LiftExtend rc_LiftExtend = new LiftExtend(rc_LiftExtender);
+  private final LiftExtenderIdle rc_LiftExtenderIdle = new LiftExtenderIdle(rc_LiftExtender);
   private final LiftWincher rc_LiftWincher = new LiftWincher();
   private final LiftWinch rc_LiftWinch = new LiftWinch(rc_LiftWincher);
+  private final LiftWincherIdle rc_LiftWincherIdle = new LiftWincherIdle(rc_LiftWincher);
   private final WoFArm rc_WoFArm = new WoFArm();
   private final WoFArmToggle rc_WoFArmToggle = new WoFArmToggle(rc_WoFArm);
   private final WoFMotor rc_WoFMotor = new WoFMotor();
+  private final WoFMotorIdle rc_WoFMotorIdle = new WoFMotorIdle(rc_WoFMotor);
   private final WoFMotorSpin rc_WoFMotorSpin = new WoFMotorSpin(rc_WoFMotor);
 
 
@@ -74,7 +84,12 @@ public class RobotContainer {
 
   public RobotContainer() {
     // Default Command
+    rc_Arm.setDefaultCommand(rc_ArmIdle);
+    rc_Collector.setDefaultCommand(rc_CollectorIdle);
     rc_DriveTrain.setDefaultCommand(rc_Drive);
+    rc_LiftExtender.setDefaultCommand(rc_LiftExtenderIdle);
+    rc_LiftWincher.setDefaultCommand(rc_LiftWincherIdle);
+    rc_WoFMotor.setDefaultCommand(rc_WoFMotorIdle);
     // Configure the button bindings
     configureButtonBindings();
   }
@@ -86,6 +101,14 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    ArmDownButton.whileHeld(rc_ArmDown);
+    ArmUpButton.whileHeld(rc_ArmUp);
+    CollectorIntakeButton.whileHeld(rc_CollectorIntake);
+    CollectorShootButton.whileHeld(rc_CollectorShoot);
+    LiftExtendButton.whileHeld(rc_LiftExtend);
+    LiftWinchButton.whileHeld(rc_LiftWinch);
+    WoFArmToggleButton.whenPressed(rc_WoFArmToggle);
+    WoFMotorSpinButton.whileHeld(rc_WoFMotorSpin);
   }
 
 

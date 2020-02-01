@@ -8,13 +8,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.Collector;
 
 public class CollectorIdle extends CommandBase {
+
+  private Collector l_collector;
   /**
    * Creates a new CollectorIdle.
    */
-  public CollectorIdle() {
+  public CollectorIdle(Collector subsystem) {
+    l_collector = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(subsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -25,6 +30,7 @@ public class CollectorIdle extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    l_collector.CollecterIdle();
   }
 
   // Called once the command ends or is interrupted.

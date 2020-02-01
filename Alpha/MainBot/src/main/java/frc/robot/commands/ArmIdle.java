@@ -8,13 +8,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.Arm;
 
 public class ArmIdle extends CommandBase {
+
+  private Arm l_arm;
   /**
    * Creates a new ArmIdle.
    */
-  public ArmIdle() {
+  public ArmIdle(Arm subsystem) {
+    l_arm = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(subsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -25,6 +30,7 @@ public class ArmIdle extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    l_arm.ArmIdle();
   }
 
   // Called once the command ends or is interrupted.
