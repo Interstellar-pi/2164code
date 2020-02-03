@@ -23,6 +23,8 @@ public final class Constants {
         public static final int rR = 2; //VictorSPX
         public static final int lF = 3; //TalonSRX
         public static final int lR = 4; //VictorSPX
+        public static final int[] driveEncoderA = new int[] {0,1};
+        public static final int[] driveEncoderB= new int[] {2,3};
     }
 
     public static class CollectorConstants  {
@@ -60,6 +62,15 @@ public final class Constants {
         public static final int WOFspin = 7;
         public static final int liftclimb = 10;
         public static final int liftextend = 9;
+    }
+
+    public static class PIDConstants    {
+        public static final int[] startSetPoints = new int[] {0,10,0}; //Left,Center,Right
+        public static final int[] collectorSetPoints = new int[] {0,0};//Up,Down
+        public static final int[] bailLeftSetpoints = new int[] {0,0,0};
+        public static final int[] bailCenterSetpoints = new int[] {0,0,0};
+        public static final int[] bailRightSetpoints = new int[] {0,0,0};
+        public static final int[] turnSetpointd = new int[] {90,-90};
     }
 
 

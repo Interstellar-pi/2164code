@@ -9,6 +9,8 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -19,7 +21,7 @@ public class collector extends SubsystemBase {
    */
 
    private WPI_TalonSRX m_roller = new WPI_TalonSRX(Constants.CollectorConstants.rollermotor);
-   private WPI_TalonSRX m_pitch = new WPI_TalonSRX(Constants.CollectorConstants.pitchmotor);
+   private CANSparkMax m_pitch = new CANSparkMax(Constants.CollectorConstants.pitchmotor, MotorType.kBrushed);
   public collector() {
 
   }
@@ -42,12 +44,12 @@ public class collector extends SubsystemBase {
 
   public void uppos(boolean inverted)  {
     m_pitch.setInverted(inverted);
-    m_pitch.set(ControlMode.PercentOutput, 1);
+    m_pitch.set(1);
   }
 
   public void dwnpos(boolean inverted)  {
     m_pitch.setInverted(inverted);
-    m_pitch.set(ControlMode.PercentOutput, -1);
+    m_pitch.set(-1);
   }
 
 

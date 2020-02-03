@@ -127,15 +127,15 @@ public class Robot extends TimedRobot {
       .add("Delay Start", 0)
       .withWidget(BuiltInWidgets.kNumberSlider)
       .withProperties(Map.of("Min", 0, "Max", 13))
-      .withSize(2, 1)
+      .withSize(3, 1)
       .withPosition(1, 3)
       .getEntry();
 
       n_DelayValue = autonTab
-      .add("Delay Value", 0)
+      .add("Delay Value", n_StartDelay.getString("0"))
       .withWidget(BuiltInWidgets.kTextView)
       .withSize(1, 1)
-      .withPosition(3, 3)
+      .withPosition(4, 3)
       .getEntry();
 
      n_ColorNeeded = mainTab
@@ -212,7 +212,7 @@ public class Robot extends TimedRobot {
 
       n_ColorNeeded.setString(gameData);
       n_ColorDetected.setString(colorString);
-      n_DelayValue.setString(n_StartDelay.getString("0"));
+      n_DelayValue.setString(String.valueOf(n_StartDelay.getDouble(0)));
 
 
 
