@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.controller.PIDController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.PIDSubsystem;
 import frc.robot.Constants.DriveConstants;
+import frc.robot.Constants.EncoderConstants;
 
 public class AutonomousPID extends PIDSubsystem {
 
@@ -29,11 +30,11 @@ public class AutonomousPID extends PIDSubsystem {
 
   private final DifferentialDrive MainDrive = new DifferentialDrive(LDrive, RDrive);
 
-  private Encoder LeftEncoder = new Encoder(6, 7, false, EncodingType.k4X);
+  private Encoder LeftEncoder = new Encoder(EncoderConstants.LeftEncoder[0], EncoderConstants.LeftEncoder[1], false, EncodingType.k4X);
 
   private final double EncoderConversion = 1.0/280 * 3.9 * Math.PI/12;
 
-  double SensorPos = LeftEncoder.get() * EncoderConversion;
+  private double SensorPos = LeftEncoder.get() * EncoderConversion;
   /**
    * Creates a new AutonomousPID.
    */
@@ -41,6 +42,7 @@ public class AutonomousPID extends PIDSubsystem {
     super(
         // The PIDController used by the subsystem
         new PIDController(0, 0, 0));
+        
   }
 
   @Override
@@ -50,7 +52,7 @@ public class AutonomousPID extends PIDSubsystem {
 
   @Override
   public double getMeasurement() {
-    // Return the process variable measurement here
+
     return 0;
   }
 }
