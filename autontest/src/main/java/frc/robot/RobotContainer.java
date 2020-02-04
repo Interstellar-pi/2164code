@@ -8,10 +8,15 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.ExampleCommand;
-import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.higear;
+import frc.robot.commands.lowgear;
+import frc.robot.subsystems.drivetrain;
+import frc.robot.subsystems.pneumatics;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -21,18 +26,25 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-
-
-
+  private final drivetrain s_Drivetrain = new drivetrain();
+  private final pneumatics s_Pneumatics = new pneumatics();
+    private final higear c_Higear = new higear(s_Pneumatics);
+    private final lowgear c_Lowgear = new lowgear(s_Pneumatics);
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
-   */
+   */  
+  public Joystick drivestick = new Joystick(Constants.OIConstsants.stick1);
+  public JoystickButton b_hi = new JoystickButton(drivestick, Constants.OIConstsants.hibtn);
+  public JoystickButton b_low = new JoystickButton(drivestick, Constants.OIConstsants.lowbtn);
   public RobotContainer() {
     // Configure the button bindings
+    drivestick.setXChannel(Constants.OIConstsants.xChannel);
+    drivestick.setYChannel(Constants.OIConstsants.yChannel);
+    drivestick.setZChannel(Constants.OIConstsants.zChannel);
     configureButtonBindings();
+    
+    s_Drivetrain.setDefaultCommand(new RunCommand(() -> s_Drivetrain.drivectrl(drivestick.getY(), -drivestick.getX()), s_Drivetrain));
   }
 
   /**
@@ -42,6 +54,8 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    b_hi.whenPressed(c_Higear);
+    b_low.whenPressed(c_Lowgear);
   }
 
 
@@ -52,6 +66,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return null;
   }
 }
