@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.controller.PIDController;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.PIDSubsystem;
 import frc.robot.Constants.DriveConstants;
 
@@ -25,6 +26,8 @@ public class AutonomousPID extends PIDSubsystem {
 
   private final SpeedControllerGroup RDrive = new SpeedControllerGroup(RFMotor, RRMotor);
   private final SpeedControllerGroup LDrive = new SpeedControllerGroup(LFMotor, LRMotor);
+
+  private final DifferentialDrive MainDrive = new DifferentialDrive(LDrive, RDrive);
 
   private Encoder LeftEncoder = new Encoder(6, 7, false, EncodingType.k4X);
 
