@@ -23,4 +23,8 @@ public final class Constants {
         public static final int CAN_LF = 3;
         public static final int CAN_LR = 4;
     }
+
+    public static class EncoderConstants{
+        public static final int[] LeftEncoder = {6,7};
+    }
 }

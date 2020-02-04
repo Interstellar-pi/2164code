@@ -9,6 +9,9 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.PIDSubsystem;
 import frc.robot.Constants.DriveConstants;
@@ -19,6 +22,12 @@ public class AutonomousPID extends PIDSubsystem {
   private final WPI_TalonSRX RRMotor = new WPI_TalonSRX(DriveConstants.CAN_RR);
   private final WPI_TalonSRX LFMotor = new WPI_TalonSRX(DriveConstants.CAN_LF);
   private final WPI_TalonSRX LRMotor = new WPI_TalonSRX(DriveConstants.CAN_LR);
+
+  private final SpeedControllerGroup RDrive = new SpeedControllerGroup(RFMotor, RRMotor);
+  private final SpeedControllerGroup LDrive = new SpeedControllerGroup(LFMotor, LRMotor);
+
+  private Encoder LeftEncoder = new Encoder(6, 7, false, EncodingType.k4X);
+
   /**
    * Creates a new AutonomousPID.
    */
