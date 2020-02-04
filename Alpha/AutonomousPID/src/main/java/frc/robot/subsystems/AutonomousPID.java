@@ -31,6 +31,9 @@ public class AutonomousPID extends PIDSubsystem {
 
   private Encoder LeftEncoder = new Encoder(6, 7, false, EncodingType.k4X);
 
+  private final double EncoderConversion = 1.0/280 * 3.9 * Math.PI/12;
+
+  double SensorPos = LeftEncoder.get() * EncoderConversion;
   /**
    * Creates a new AutonomousPID.
    */
