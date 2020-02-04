@@ -14,7 +14,7 @@ import frc.robot.Constants.WoFConstants;
 
 public class WoFArm extends SubsystemBase {
 
-  private final DoubleSolenoid WoFSolenoid = new DoubleSolenoid(WoFConstants.PCM_Port0, WoFConstants.PCM_Port1);
+  private final DoubleSolenoid WoFSolenoid = new DoubleSolenoid(WoFConstants.CAN_PCM, WoFConstants.PCM_WoFSol[0], WoFConstants.PCM_WoFSol[1]);
 
   public void WoFSolenoid(){
     if(WoFSolenoid.get() == Value.kForward){
