@@ -39,6 +39,7 @@ public class Autonomous extends PIDCommand {
     addRequirements(subsystem);
     // Configure additional PID options by calling `getController` here.
     getController().setTolerance(0.2);
+    getController().setIntegratorRange(8.5, 10);
   }
 
   @Override
