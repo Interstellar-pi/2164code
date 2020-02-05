@@ -8,9 +8,12 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.Autonomous;
+import frc.robot.commands.Drive;
 import frc.robot.subsystems.DriveTrain;
 
 /**
@@ -21,15 +24,20 @@ import frc.robot.subsystems.DriveTrain;
  */
 public class RobotContainer {
   //Define OI here
+  public Joystick JS1 = new Joystick(0);
+  public JoystickButton PIDDriveButton = new JoystickButton(JS1, 2);
 
 
 
   //The robot's subsystems and commands are defined here...
   private final DriveTrain rc_DriveTrain = new DriveTrain();
   private final Autonomous rc_Autonomous = new Autonomous(rc_DriveTrain);
+  private final Drive rc_Drive = new Drive(rc_DriveTrain, JS1);
+
 
 
   public RobotContainer() {
+    rc_DriveTrain.setDefaultCommand(rc_Drive);
     //Default command
 
 
@@ -45,6 +53,7 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    PIDDriveButton.whenPressed(rc_Autonomous);
   }
 
 
