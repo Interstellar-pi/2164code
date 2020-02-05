@@ -9,7 +9,6 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.PIDCommand;
-import frc.robot.Constants.EncoderConstants;
 import frc.robot.subsystems.DriveTrain;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
@@ -23,6 +22,7 @@ public class Autonomous extends PIDCommand {
    * Creates a new Autonomous.
    */
   public Autonomous(DriveTrain subsystem) {
+
     super(
         // The controller that the command will use
         new PIDController(1.0, 0.07, 0.1),
@@ -32,18 +32,24 @@ public class Autonomous extends PIDCommand {
         () -> 10,
         // This uses the output
         output -> {
-          // Use the output here
+          subsystem.PIDDrive(output);
         });
     // Use addRequirements() here to declare subsystem dependencies.
     l_drivetrain = subsystem;
     addRequirements(subsystem);
     // Configure additional PID options by calling `getController` here.
-    getController().reset();
+    getController().setTolerance(0.2);
+  }
+
+  @Override
+  public void initialize() {
+    l_drivetrain.Reset();
+    super.initialize();
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return getController().atSetpoint();
   }
 }

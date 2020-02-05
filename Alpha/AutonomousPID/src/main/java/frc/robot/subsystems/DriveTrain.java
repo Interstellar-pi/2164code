@@ -31,9 +31,6 @@ public class DriveTrain extends SubsystemBase {
 
   private static Encoder LeftEncoder = new Encoder(EncoderConstants.LeftEncoder[0], EncoderConstants.LeftEncoder[1], false, EncodingType.k4X);
 
-  /**
-   * Creates a new DriveTrain.
-   */
   public DriveTrain() {
 
   }
@@ -42,7 +39,7 @@ public class DriveTrain extends SubsystemBase {
     return LeftEncoder.get()*EncoderConstants.DPT;
   }
 
-  public void MainDrive(double y, double z) {
+  public void StickDrive(double y, double z) {
     MainDrive.arcadeDrive(y, z, false);
   }
 
