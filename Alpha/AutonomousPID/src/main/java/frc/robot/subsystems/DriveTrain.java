@@ -42,6 +42,14 @@ public class DriveTrain extends SubsystemBase {
     return LeftEncoder.get()*EncoderConstants.DPT;
   }
 
+  public void MainDrive(double y, double z) {
+    MainDrive.arcadeDrive(y, z, false);
+  }
+
+  public void MainDrive(double y) {
+    MainDrive.arcadeDrive(y, 0.0, false);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

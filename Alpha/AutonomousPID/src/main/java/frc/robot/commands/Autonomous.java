@@ -16,22 +16,27 @@ import frc.robot.subsystems.DriveTrain;
 // information, see:
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
 public class Autonomous extends PIDCommand {
+
+  private final DriveTrain l_drivetrain;
+
   /**
    * Creates a new Autonomous.
    */
-  public Autonomous() {
+  public Autonomous(DriveTrain subsystem) {
     super(
         // The controller that the command will use
-        new PIDController(0, 0, 0),
+        new PIDController(1.0, 0.07, 0.1),
         // This should return the measurement
         () -> DriveTrain.GetEncoderValue(),
         // This should return the setpoint (can also be a constant)
-        () -> 0,
+        () -> 10,
         // This uses the output
         output -> {
           // Use the output here
         });
     // Use addRequirements() here to declare subsystem dependencies.
+    l_drivetrain = subsystem;
+    addRequirements(subsystem);
     // Configure additional PID options by calling `getController` here.
     getController().reset();
   }
