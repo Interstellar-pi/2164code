@@ -46,8 +46,12 @@ public class DriveTrain extends SubsystemBase {
     MainDrive.arcadeDrive(y, z, false);
   }
 
-  public void MainDrive(double y) {
+  public void PIDDrive(double y) {
     MainDrive.arcadeDrive(y, 0.0, false);
+  }
+
+  public void Reset() {
+    LeftEncoder.reset();
   }
 
   @Override
