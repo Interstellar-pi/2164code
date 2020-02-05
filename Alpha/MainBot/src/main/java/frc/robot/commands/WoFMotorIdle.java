@@ -12,7 +12,7 @@ import frc.robot.subsystems.WoFMotor;
 
 public class WoFMotorIdle extends CommandBase {
 
-  private WoFMotor l_wofmotor;
+  private final WoFMotor l_wofmotor;
   /**
    * Creates a new WoFMotorIdle.
    */

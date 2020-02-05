@@ -29,17 +29,17 @@ public class DriveTrain extends SubsystemBase {
 
   private final DifferentialDrive MainDrive = new DifferentialDrive(LDrive, RDrive);
 
-  private Encoder LeftEncoder = new Encoder(EncoderConstants.LeftEncoder[0], EncoderConstants.LeftEncoder[1], false, EncodingType.k4X);
-
-  private final double EncoderConversion = 1.0/280 * 3.9 * Math.PI/12;
-
-  private double SensorPos = LeftEncoder.get() * EncoderConversion;
+  private static Encoder LeftEncoder = new Encoder(EncoderConstants.LeftEncoder[0], EncoderConstants.LeftEncoder[1], false, EncodingType.k4X);
 
   /**
    * Creates a new DriveTrain.
    */
   public DriveTrain() {
 
+  }
+
+  public static double GetEncoderValue() {
+    return LeftEncoder.get()*EncoderConstants.DPT;
   }
 
   @Override

@@ -12,7 +12,7 @@ import frc.robot.subsystems.Collector;
 
 public class CollectorIdle extends CommandBase {
 
-  private Collector l_collector;
+  private final Collector l_collector;
   /**
    * Creates a new CollectorIdle.
    */

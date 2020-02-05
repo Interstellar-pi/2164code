@@ -12,7 +12,7 @@ import frc.robot.subsystems.LiftExtender;
 
 public class LiftExtenderIdle extends CommandBase {
 
-  private LiftExtender l_extender;
+  private final LiftExtender l_extender;
   /**
    * Creates a new LiftExtenderIdle.
    */

@@ -12,7 +12,7 @@ import frc.robot.subsystems.Collector;
 
 public class CollectorShoot extends CommandBase {
 
-  private Collector l_collector;
+  private final Collector l_collector;
   /**
    * Creates a new Shoot.
    */

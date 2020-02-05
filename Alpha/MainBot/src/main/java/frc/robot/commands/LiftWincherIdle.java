@@ -12,7 +12,7 @@ import frc.robot.subsystems.LiftWincher;
 
 public class LiftWincherIdle extends CommandBase {
 
-  private LiftWincher l_liftwincher;
+  private final LiftWincher l_liftwincher;
   /**
    * Creates a new LiftWincherIdle.
    */

@@ -12,7 +12,7 @@ import frc.robot.subsystems.Arm;
 
 public class ArmIdle extends CommandBase {
 
-  private Arm l_arm;
+  private final Arm l_arm;
   /**
    * Creates a new ArmIdle.
    */
