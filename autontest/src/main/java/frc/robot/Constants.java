@@ -37,6 +37,9 @@ public final class Constants {
     }
 
     public static class PIDConstants    {
+
+        public static final double tick2feet = 1/280*4*Math.PI/12;
+
         public static final int[] startSetPoints = new int[] {0,10,0}; //Left,Center,Right
         public static final int[] collectorSetPoints = new int[] {0,0};//Up,Down
         public static final int[] bailLeftSetpoints = new int[] {0,0,0};

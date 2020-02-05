@@ -7,9 +7,18 @@
 
 package frc.robot;
 
+import java.util.Enumeration;
+import java.util.Map;
+
+import com.fasterxml.jackson.databind.util.EnumValues;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -21,6 +30,18 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
+
+  ShuffleboardTab autonTab = Shuffleboard.getTab("Autonomous Selection");
+  public NetworkTableEntry n_StartLeft;
+  public NetworkTableEntry n_StartCenter;
+  public NetworkTableEntry n_StartRight;
+  public NetworkTableEntry n_Other;
+  public NetworkTableEntry n_BailLeft;
+  public NetworkTableEntry n_BailCenter;
+  public NetworkTableEntry n_BailRight;
+  public NetworkTableEntry n_NoBail;
+  public NetworkTableEntry n_StartDelay;
+  public NetworkTableEntry n_DelayValue;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -67,6 +88,78 @@ public class Robot extends TimedRobot {
   public void autonomousInit() {
     m_autonomousCommand = m_robotContainer.getAutonomousCommand();
 
+
+    n_StartLeft = autonTab
+    .add("Starting Left", false)
+    .withWidget(BuiltInWidgets.kToggleSwitch)
+    .withSize(1, 1)
+    .withPosition(1, 1)
+    .getEntry();
+
+    n_StartCenter = autonTab
+    .add("Starting Center", false)
+    .withWidget(BuiltInWidgets.kToggleSwitch)
+    .withSize(1, 1)
+    .withPosition(2, 1)
+    .getEntry();
+
+    n_StartRight = autonTab
+    .add("Starting Right", false)
+    .withWidget(BuiltInWidgets.kToggleSwitch)
+    .withSize(1, 1)
+    .withPosition(3, 1)
+    .getEntry();
+  
+    n_Other = autonTab
+    .add("Other", false)
+    .withWidget(BuiltInWidgets.kToggleSwitch)
+    .withSize(1, 1)
+    .withPosition(4, 1)
+    .getEntry();
+
+    n_BailLeft = autonTab
+    .add("Bail Left", false)
+    .withWidget(BuiltInWidgets.kToggleSwitch)
+    .withSize(1, 1)
+    .withPosition(1, 2)
+    .getEntry();
+
+    n_BailCenter = autonTab
+    .add("Bail Center", false)
+    .withWidget(BuiltInWidgets.kToggleSwitch)
+    .withSize(1, 1)
+    .withPosition(2, 2)
+    .getEntry();
+
+    n_BailRight = autonTab
+    .add("Bail Right", false)
+    .withWidget(BuiltInWidgets.kToggleSwitch)
+    .withSize(1, 1)
+    .withPosition(3, 2)
+    .getEntry();
+
+    n_NoBail = autonTab
+    .add("No Bail", false)
+    .withWidget(BuiltInWidgets.kToggleSwitch)
+    .withSize(1, 1)
+    .withPosition(4, 2)
+    .getEntry();
+  
+    n_StartDelay = autonTab
+    .add("Delay Start", 0)
+    .withWidget(BuiltInWidgets.kNumberSlider)
+    .withProperties(Map.of("Min", 0, "Max", 13))
+    .withSize(3, 1)
+    .withPosition(1, 3)
+    .getEntry();
+
+    n_DelayValue = autonTab
+    .add("Delay Value", n_StartDelay.getString("0"))
+    .withWidget(BuiltInWidgets.kTextView)
+    .withSize(1, 1)
+    .withPosition(4, 3)
+    .getEntry();
+
     // schedule the autonomous command (example)
     if (m_autonomousCommand != null) {
       m_autonomousCommand.schedule();
@@ -110,4 +203,25 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() {
   }
+
+/*
+  private enum StartCommandSelector {
+    SL,SC,SR 
+  }
+
+  
+  private StartCommandSelector startselector()  {
+    StartCommandSelector Selection;
+
+    if(n_StartLeft.getBoolean(false)) {
+       Selection = StartCommandSelector.SL;
+    } else if (n_StartCenter.getBoolean(false)) {
+       Selection = StartCommandSelector.SC;
+    } else if(n_StartRight.getBoolean(false))  {
+        Selection = StartCommandSelector.SR;
+    }
+
+    return Selection;
+  }
+*/
 }

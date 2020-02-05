@@ -15,6 +15,9 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.higear;
 import frc.robot.commands.lowgear;
+import frc.robot.commands.startcenter;
+import frc.robot.commands.startleft;
+import frc.robot.commands.startright;
 import frc.robot.subsystems.drivetrain;
 import frc.robot.subsystems.pneumatics;
 
@@ -28,6 +31,11 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
 
   private final drivetrain s_Drivetrain = new drivetrain();
+    private final startleft ac_Startleft = new startleft(s_Drivetrain);
+    private final startcenter ac_Startcenter = new startcenter(s_Drivetrain);
+    private final startright ac_StartRight = new startright(s_Drivetrain);
+
+
   private final pneumatics s_Pneumatics = new pneumatics();
     private final higear c_Higear = new higear(s_Pneumatics);
     private final lowgear c_Lowgear = new lowgear(s_Pneumatics);
@@ -66,6 +74,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return null;
+    return ac_Startcenter;
   }
 }
