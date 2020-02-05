@@ -29,7 +29,6 @@ public final class Constants {
         public static final int EncoderPPR = 280; //Encoder's pulse per revolution
         public static final double WDiam = 3.9; //Inch diameter of the wheel
         public static final double ConvFact = 1/12; //Conversion factor of inches to feet
-        public static final double DistPP = ((1/EncoderPPR)*(WDiam)*(ConvFact*Math.PI));
+        public static final double DPT = ((1/EncoderPPR)*(WDiam)*(ConvFact*Math.PI)); //Distance Per Tick calculation
     }
 }
-// 1.0/280 * 3.9 * Math.PI/12
