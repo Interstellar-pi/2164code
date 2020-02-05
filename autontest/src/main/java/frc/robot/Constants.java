@@ -23,7 +23,7 @@ public final class Constants {
         public static final int lF = 3; //TalonSRX
         public static final int lR = 4; //TalonSRX
         public static final int[] driveEncoderA = new int[] {0,1};
-        public static final int[] driveEncoderB= new int[] {2,3};
+        public static final int[] driveEncoderB= new int[] {6,7};
     }
 
 
@@ -38,14 +38,14 @@ public final class Constants {
 
     public static class PIDConstants    {
 
-        public static final double tick2feet = 1/280*4*Math.PI/12;
+        public static final double tick2feet = 1.0/280*4*Math.PI/12;
 
-        public static final int[] startSetPoints = new int[] {0,10,0}; //Left,Center,Right
-        public static final int[] collectorSetPoints = new int[] {0,0};//Up,Down
-        public static final int[] bailLeftSetpoints = new int[] {0,0,0};
-        public static final int[] bailCenterSetpoints = new int[] {0,0,0};
-        public static final int[] bailRightSetpoints = new int[] {0,0,0};
-        public static final int[] turnSetpointd = new int[] {90,-90};
+        public static final double[] startSetPoints = new double[] {0,10,0}; //Left,Center,Right
+        public static final double[] collectorSetPoints = new double[] {0,0};//Up,Down
+        public static final double[] bailLeftSetpoints = new double[] {0,0,0};
+        public static final double[] bailCenterSetpoints = new double[] {0,0,0};
+        public static final double[] bailRightSetpoints = new double[] {0,0,0};
+        public static final double[] turnSetpointd = new double[] {90,-90};
     }
 
     public static final class PneumaticsConstants {

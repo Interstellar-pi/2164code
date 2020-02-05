@@ -26,9 +26,9 @@ public class startcenter extends PIDCommand {
         // The controller that the command will use
         new PIDController(0.1, 0.7, 0.1),
         // This should return the measurement
-        () -> drivesystem.aGetDistance(),
+        () -> drivesystem.encoderA.getDistance(),
         // This should return the setpoint (can also be a constant)
-        () -> Constants.PIDConstants.bailCenterSetpoints[1],
+        () -> 10,
         // This uses the output
         output -> { drivesystem.drivectrl(output, 0.0);
           // Use the output here
@@ -38,13 +38,22 @@ public class startcenter extends PIDCommand {
     s_Drivetrain = drivesystem;
     addRequirements(drivesystem);
 
-    getController().setIntegratorRange(1, 1.35);
+    getController().setIntegratorRange(1, -1);
     getController().setTolerance(0.30);
+    System.out.println("this executed");
     }
+
+     @Override
+    public void initialize() {
+      s_Drivetrain.encreset();
+    }
+
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    System.out.println("setpoint reached");
     return getController().atSetpoint();
+    
   }
 }
