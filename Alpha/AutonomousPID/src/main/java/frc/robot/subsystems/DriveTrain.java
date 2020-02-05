@@ -40,11 +40,11 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public void StickDrive(double y, double z) {
-    MainDrive.arcadeDrive(y, z, false);
+    MainDrive.arcadeDrive(y,-z,false);
   }
 
   public void PIDDrive(double y) {
-    MainDrive.arcadeDrive(y, 0.0, false);
+    MainDrive.arcadeDrive(y,0.0,false);
   }
 
   public void Reset() {

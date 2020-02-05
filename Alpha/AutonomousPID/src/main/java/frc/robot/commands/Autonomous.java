@@ -32,7 +32,7 @@ public class Autonomous extends PIDCommand {
         () -> 10,
         // This uses the output
         output -> {
-          subsystem.PIDDrive(output);
+          subsystem.PIDDrive(-output);
         });
     // Use addRequirements() here to declare subsystem dependencies.
     l_drivetrain = subsystem;
