@@ -14,7 +14,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.Autonomous;
 import frc.robot.commands.Drive;
+import frc.robot.commands.ShifterHigh;
+import frc.robot.commands.ShifterLow;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Shifter;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -26,6 +29,8 @@ public class RobotContainer {
   //Define OI here
   public Joystick JS1 = new Joystick(0);
   public JoystickButton PIDDriveButton = new JoystickButton(JS1, 2);
+  public JoystickButton ShifterLowButton = new JoystickButton(JS1, 3);
+  public JoystickButton ShifterHighButton = new JoystickButton(JS1, 1);
 
 
 
@@ -33,6 +38,9 @@ public class RobotContainer {
   private final DriveTrain rc_DriveTrain = new DriveTrain();
   private final Autonomous rc_Autonomous = new Autonomous(rc_DriveTrain);
   private final Drive rc_Drive = new Drive(rc_DriveTrain, JS1);
+  private final Shifter rc_Shifter = new Shifter();
+  private final ShifterHigh rc_ShifterHigh = new ShifterHigh(rc_Shifter);
+  private final ShifterLow rc_ShifterLow = new ShifterLow(rc_Shifter);
 
 
 
@@ -54,6 +62,8 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     PIDDriveButton.whenPressed(rc_Autonomous);
+    ShifterLowButton.toggleWhenPressed(rc_ShifterLow);
+    ShifterHighButton.toggleWhenPressed(rc_ShifterHigh);
   }
 
 

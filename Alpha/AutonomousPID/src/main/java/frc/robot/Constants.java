@@ -31,4 +31,9 @@ public final class Constants {
         public static final int ConvFact = 12; //Conversion factor (12 inches in a foot)
         public static final double DPT = 1.0/EncoderPPR*WDiam*Math.PI/ConvFact; //Distance Per Tick calculation
     }
+
+    public static class PCMConstants{
+        public static final int PCM = 12;
+        public static final int[] ShifterSol = {0,1};
+    }
 }
