@@ -16,4 +16,8 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+
+    public static class ArmConstants {
+        public static final int CAN_Pitch = 9;
+    }
 }

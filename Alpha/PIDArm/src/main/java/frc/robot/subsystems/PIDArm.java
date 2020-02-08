@@ -9,11 +9,15 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.PIDSubsystem;
+import frc.robot.Constants.ArmConstants;
+
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 public class PIDArm extends PIDSubsystem {
-  /**
-   * Creates a new PIDArm.
-   */
+  
+  private final CANSparkMax SpinMotor = new CANSparkMax(ArmConstants.CAN_Pitch, MotorType.kBrushed);
+
   public PIDArm() {
     super(
         // The PIDController used by the subsystem
