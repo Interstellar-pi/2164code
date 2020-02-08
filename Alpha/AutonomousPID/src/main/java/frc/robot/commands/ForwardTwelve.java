@@ -14,21 +14,20 @@ import frc.robot.subsystems.DriveTrain;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
-public class ForwardTen extends PIDCommand {
+public class ForwardTwelve extends PIDCommand {
 
   private final DriveTrain l_drivetrain;
   /**
-   * Creates a new ForwardTen.
+   * Creates a new ForwardTwelve.
    */
-  public ForwardTen(DriveTrain subsystem) {
-
+  public ForwardTwelve(DriveTrain subsystem) {
     super(
         // The controller that the command will use
-        new PIDController(1.0, 0.07, 0.1),
+        new PIDController(0.5, 0.07, 0.1),
         // This should return the measurement
         () -> DriveTrain.GetEncoderValue(),
         // This should return the setpoint (can also be a constant)
-        () -> 9,
+        () -> 11,
         // This uses the output
         output -> {
           subsystem.PIDDrive(-output);
@@ -38,7 +37,7 @@ public class ForwardTen extends PIDCommand {
     addRequirements(subsystem);
     // Configure additional PID options by calling `getController` here.
     getController().setTolerance(0.1);
-    getController().setIntegratorRange(8, 9.5);
+    getController().setIntegratorRange(10, 11.5);
   }
 
   @Override

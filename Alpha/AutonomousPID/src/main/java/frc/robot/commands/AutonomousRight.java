@@ -15,26 +15,30 @@ import frc.robot.subsystems.DriveTrain;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
-public class AutonomousSequential extends SequentialCommandGroup {
+public class AutonomousRight extends SequentialCommandGroup {
   /**
-   * Creates a new AutonomousSequential.
+   * Creates a new AutonomousRight.
    */
-  public AutonomousSequential(DriveTrain l_drivetrain, Cylinder l_cylinder) {
+  public AutonomousRight(DriveTrain l_drivetrain, Cylinder l_cylinder) {
     // Add your commands in the super() call, e.g.
     // super(new FooCommand(), new BarCommand());
-    super(new ForwardTwelve(l_drivetrain),
-          new WaitCommand(2),
-          new CylinderForward(l_cylinder),
-          new WaitCommand(0.5),
-          new CylinderBack(l_cylinder),
-          new WaitCommand(0.5),
-          new BackOne(l_drivetrain),
-          new WaitCommand(0.5),
+    super(new ForwardTen(l_drivetrain),
           new LeftTurn(l_drivetrain),
           new WaitCommand(0.2),
           new ForwardTwoFive(l_drivetrain),
-          new WaitCommand(0.5),
-          new LeftTurn(l_drivetrain),
+          new RightTurn(l_drivetrain),
+          new WaitCommand(0.2),
+          new ForwardTwoFive(l_drivetrain),
+          new WaitCommand(0.2),
+          new CylinderForward(l_cylinder),
+          new WaitCommand(0.2),
+          new CylinderBack(l_cylinder),
+          new WaitCommand(0.2),
+          new BackOne(l_drivetrain),
+          new RightTurn(l_drivetrain),
+          new WaitCommand(0.2),
+          new ForwardTwoFive(l_drivetrain),
+          new RightTurn(l_drivetrain),
           new WaitCommand(0.2),
           new ForwardTen(l_drivetrain));
   }

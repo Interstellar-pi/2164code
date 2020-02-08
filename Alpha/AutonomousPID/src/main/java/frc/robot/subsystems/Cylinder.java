@@ -12,19 +12,19 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.PCMConstants;
 
-public class Shifter extends SubsystemBase {
+public class Cylinder extends SubsystemBase {
 
-  private final DoubleSolenoid ShifterSol = new DoubleSolenoid(PCMConstants.PCM, PCMConstants.ShifterSol[0], PCMConstants.ShifterSol[1]);
+  private final DoubleSolenoid CylinderSol = new DoubleSolenoid(PCMConstants.PCM, PCMConstants.CylinderSol[0], PCMConstants.CylinderSol[1]);
 
-  public Shifter() {
+  public Cylinder() {
   }
 
-  public void ShifterHigh() {
-    ShifterSol.set(Value.kForward);
+  public void CylinderForward() {
+    CylinderSol.set(Value.kForward);
   }
 
-  public void ShifterLow() {
-    ShifterSol.set(Value.kReverse);
+  public void CylinderBackward() {
+    CylinderSol.set(Value.kReverse);
   }
 
   @Override

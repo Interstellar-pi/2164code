@@ -35,5 +35,6 @@ public final class Constants {
     public static class PCMConstants{
         public static final int PCM = 12;
         public static final int[] ShifterSol = {0,1};
+        public static final int[] CylinderSol = {2,4};
     }
 }

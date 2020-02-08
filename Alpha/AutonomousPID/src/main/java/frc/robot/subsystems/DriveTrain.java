@@ -32,7 +32,6 @@ public class DriveTrain extends SubsystemBase {
   private static Gyro LocalGyro = new ADIS16470_IMU();
 
   public DriveTrain() {
-
   }
 
   public static double GetGyro() {

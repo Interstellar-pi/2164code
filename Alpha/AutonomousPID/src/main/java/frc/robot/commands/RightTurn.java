@@ -17,7 +17,6 @@ import frc.robot.subsystems.DriveTrain;
 public class RightTurn extends PIDCommand {
 
   private final DriveTrain l_drivetrain;
-
   /**
    * Creates a new RightTurn.
    */
@@ -47,7 +46,7 @@ public class RightTurn extends PIDCommand {
     l_drivetrain.GyroReset();
     super.initialize();
   }
-
+  @Override
   public boolean isFinished() {
     return getController().atSetpoint();
   }
