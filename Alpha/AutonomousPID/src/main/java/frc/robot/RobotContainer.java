@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.Autonomous;
 import frc.robot.commands.Drive;
+import frc.robot.commands.RightTurn;
 import frc.robot.commands.ShifterHigh;
 import frc.robot.commands.ShifterLow;
 import frc.robot.subsystems.DriveTrain;
@@ -31,6 +32,7 @@ public class RobotContainer {
   public JoystickButton PIDDriveButton = new JoystickButton(JS1, 2);
   public JoystickButton ShifterLowButton = new JoystickButton(JS1, 3);
   public JoystickButton ShifterHighButton = new JoystickButton(JS1, 1);
+  public JoystickButton RightTurnButton = new JoystickButton(JS1, 4);
 
 
 
@@ -41,6 +43,7 @@ public class RobotContainer {
   private final Shifter rc_Shifter = new Shifter();
   private final ShifterHigh rc_ShifterHigh = new ShifterHigh(rc_Shifter);
   private final ShifterLow rc_ShifterLow = new ShifterLow(rc_Shifter);
+  private final RightTurn rc_RightTurn = new RightTurn(rc_DriveTrain);
 
 
 
@@ -64,6 +67,7 @@ public class RobotContainer {
     PIDDriveButton.whenPressed(rc_Autonomous);
     ShifterLowButton.toggleWhenPressed(rc_ShifterLow);
     ShifterHighButton.toggleWhenPressed(rc_ShifterHigh);
+    RightTurnButton.whenPressed(rc_RightTurn);
   }
 
 

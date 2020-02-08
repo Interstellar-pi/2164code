@@ -44,7 +44,7 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public void DriveTurn(double z) {
-    MainDrive.arcadeDrive(0.0, z, false);
+    MainDrive.arcadeDrive(0.0, -z, false);
   }
 
   public static double Rotation() {
