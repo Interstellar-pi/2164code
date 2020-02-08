@@ -25,11 +25,11 @@ public class RightTurn extends PIDCommand {
 
     super(
         // The controller that the command will use
-        new PIDController(0.025, 0.01, 0.1),
+        new PIDController(0.05, 0.001, 0.005),
         // This should return the measurement
         () -> DriveTrain.Rotation(),
         // This should return the setpoint (can also be a constant)
-        () -> -90,
+        () -> -90.1,
         // This uses the output
         output -> {
           subsystem.DriveTurn(-output);
@@ -37,10 +37,9 @@ public class RightTurn extends PIDCommand {
         });
     // Use addRequirements() here to declare subsystem dependencies.
     l_drivetrain = subsystem;
-    addRequirements(subsystem);
     // Configure additional PID options by calling `getController` here.
-    getController().setTolerance(15);
-    getController().setIntegratorRange(-60, -80);
+    getController().setTolerance(0.5);
+    //getController().setIntegratorRange(-25, -90);
   }
 
   @Override
@@ -49,8 +48,6 @@ public class RightTurn extends PIDCommand {
     super.initialize();
   }
 
-  // Returns true when the command should end.
-  @Override
   public boolean isFinished() {
     return getController().atSetpoint();
   }
