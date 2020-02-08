@@ -14,14 +14,14 @@ import frc.robot.subsystems.DriveTrain;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
-public class Autonomous extends PIDCommand {
+public class ForwardTen extends PIDCommand {
 
   private final DriveTrain l_drivetrain;
 
   /**
    * Creates a new Autonomous.
    */
-  public Autonomous(DriveTrain subsystem) {
+  public ForwardTen(DriveTrain subsystem) {
 
     super(
         // The controller that the command will use

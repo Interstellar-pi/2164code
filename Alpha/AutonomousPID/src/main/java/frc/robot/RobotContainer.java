@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.Autonomous;
+import frc.robot.commands.ForwardTen;
 import frc.robot.commands.Drive;
 import frc.robot.commands.RightTurn;
 import frc.robot.commands.ShifterHigh;
@@ -29,7 +29,7 @@ import frc.robot.subsystems.Shifter;
 public class RobotContainer {
   //Define OI here
   public Joystick JS1 = new Joystick(0);
-  public JoystickButton PIDDriveButton = new JoystickButton(JS1, 2);
+  public JoystickButton ForwardTenButton = new JoystickButton(JS1, 2);
   public JoystickButton ShifterLowButton = new JoystickButton(JS1, 3);
   public JoystickButton ShifterHighButton = new JoystickButton(JS1, 1);
   public JoystickButton RightTurnButton = new JoystickButton(JS1, 4);
@@ -38,7 +38,7 @@ public class RobotContainer {
 
   //The robot's subsystems and commands are defined here...
   private final DriveTrain rc_DriveTrain = new DriveTrain();
-  private final Autonomous rc_Autonomous = new Autonomous(rc_DriveTrain);
+  private final ForwardTen rc_ForwardTen = new ForwardTen(rc_DriveTrain);
   private final Drive rc_Drive = new Drive(rc_DriveTrain, JS1);
   private final Shifter rc_Shifter = new Shifter();
   private final ShifterHigh rc_ShifterHigh = new ShifterHigh(rc_Shifter);
@@ -64,7 +64,7 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    PIDDriveButton.whenPressed(rc_Autonomous);
+    ForwardTenButton.whenPressed(rc_ForwardTen);
     ShifterLowButton.toggleWhenPressed(rc_ShifterLow);
     ShifterHighButton.toggleWhenPressed(rc_ShifterHigh);
     RightTurnButton.whenPressed(rc_RightTurn);
@@ -78,6 +78,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     //This command will run in autonomous
-    return rc_Autonomous;
+    return null;
   }
 }
