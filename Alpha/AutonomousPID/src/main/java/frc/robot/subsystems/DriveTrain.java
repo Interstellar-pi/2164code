@@ -56,7 +56,7 @@ public class DriveTrain extends SubsystemBase {
 
   @Override
   public void periodic() {
-    SmartDashboard.putNumber("Gyro Angle", GetGyro());
+    SmartDashboard.putNumber("Gyro Angle", LocalGyro.getAngle());
     // This method will be called once per scheduler run
   }
 }
