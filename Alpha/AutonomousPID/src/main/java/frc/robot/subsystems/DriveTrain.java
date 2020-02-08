@@ -19,15 +19,9 @@ import frc.robot.Constants.EncoderConstants;
 
 public class DriveTrain extends SubsystemBase {
 
-  private final WPI_TalonSRX RFMotor = new WPI_TalonSRX(DriveConstants.CAN_RF);
-  private final WPI_TalonSRX RRMotor = new WPI_TalonSRX(DriveConstants.CAN_RR);
-  private final WPI_TalonSRX LFMotor = new WPI_TalonSRX(DriveConstants.CAN_LF);
-  private final WPI_TalonSRX LRMotor = new WPI_TalonSRX(DriveConstants.CAN_LR);
-
-  private final SpeedControllerGroup RDrive = new SpeedControllerGroup(RFMotor, RRMotor);
-  private final SpeedControllerGroup LDrive = new SpeedControllerGroup(LFMotor, LRMotor);
-
-  private final DifferentialDrive MainDrive = new DifferentialDrive(LDrive, RDrive);
+  private final DifferentialDrive MainDrive = new DifferentialDrive
+        (new SpeedControllerGroup(new WPI_TalonSRX(DriveConstants.CAN_LF), new WPI_TalonSRX(DriveConstants.CAN_LR)),
+         new SpeedControllerGroup(new WPI_TalonSRX(DriveConstants.CAN_RF), new WPI_TalonSRX(DriveConstants.CAN_RR)));
 
   private static Encoder LeftEncoder = new Encoder(EncoderConstants.LeftEncoder[0], EncoderConstants.LeftEncoder[1], false, EncodingType.k4X);
 
