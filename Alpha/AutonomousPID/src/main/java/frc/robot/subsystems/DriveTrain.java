@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import com.analog.adis16470.frc.ADIS16470_IMU;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import java.lang.Math;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
@@ -36,6 +37,10 @@ public class DriveTrain extends SubsystemBase {
 
   public double GetGyro() {
     return LocalGyro.getAngle();
+  }
+
+  public static double Rotation() {
+    return Math.IEEEremainder(LocalGyro.getAngle(), 360);
   }
 
   public static double GetEncoderValue() {
