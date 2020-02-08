@@ -35,7 +35,7 @@ public class DriveTrain extends SubsystemBase {
 
   }
 
-  public double GetGyro() {
+  public static double GetGyro() {
     return LocalGyro.getAngle();
   }
 
@@ -61,7 +61,8 @@ public class DriveTrain extends SubsystemBase {
 
   @Override
   public void periodic() {
-    SmartDashboard.putNumber("Gyro Angle", LocalGyro.getAngle());
+    SmartDashboard.putNumber("Raw Gyro Angle", LocalGyro.getAngle());
+    SmartDashboard.putNumber("Adjusted Gyro Angle", Rotation());
     // This method will be called once per scheduler run
   }
 }
