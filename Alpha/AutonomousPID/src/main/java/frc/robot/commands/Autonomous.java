@@ -29,7 +29,7 @@ public class Autonomous extends PIDCommand {
         // This should return the measurement
         () -> DriveTrain.GetEncoderValue(),
         // This should return the setpoint (can also be a constant)
-        () -> 10,
+        () -> 9,
         // This uses the output
         output -> {
           subsystem.PIDDrive(-output);

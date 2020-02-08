@@ -39,6 +39,14 @@ public class DriveTrain extends SubsystemBase {
     return LocalGyro.getAngle();
   }
 
+  public void GyroReset() {
+    LocalGyro.reset();
+  }
+
+  public void DriveTurn(double z) {
+    MainDrive.arcadeDrive(0.0, z, false);
+  }
+
   public static double Rotation() {
     return Math.IEEEremainder(LocalGyro.getAngle(), 360);
   }
