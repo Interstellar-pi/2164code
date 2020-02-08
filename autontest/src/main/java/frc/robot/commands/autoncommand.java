@@ -8,21 +8,34 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
+import frc.robot.subsystems.drivetrain;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
 public class autoncommand extends SequentialCommandGroup {
-  
-
   /**
    * Creates a new autoncommand.
    */
-  public autoncommand() {
+  public autoncommand(drivetrain s_Drivetrain) {
     // Add your commands in the super() call, e.g.
     // super(new FooCommand(), new BarCommand());
     
-    super();
+    super(
+    new startcenter(s_Drivetrain),
+    new reverse(s_Drivetrain).withTimeout(3.0)
+
+      /*
+    new rturnpid(s_Drivetrain),
+    new WaitCommand(2),
+    new lturnpid(s_Drivetrain)
+*/
+
+
+
+
+    );
   }
 
 

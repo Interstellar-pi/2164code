@@ -13,8 +13,11 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.autoncommand;
 import frc.robot.commands.higear;
 import frc.robot.commands.lowgear;
+import frc.robot.commands.lturnpid;
+import frc.robot.commands.rturnpid;
 import frc.robot.commands.startcenter;
 import frc.robot.commands.startleft;
 import frc.robot.commands.startright;
@@ -31,9 +34,12 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
 
   private final drivetrain s_Drivetrain = new drivetrain();
+    private final autoncommand ac_Autoncommand = new autoncommand(s_Drivetrain);
     private final startleft ac_Startleft = new startleft(s_Drivetrain);
     private final startcenter ac_Startcenter = new startcenter(s_Drivetrain);
     private final startright ac_StartRight = new startright(s_Drivetrain);
+    public final rturnpid ac_rTurnpid = new rturnpid(s_Drivetrain);
+    public final lturnpid ac_lTurnpid = new lturnpid(s_Drivetrain);
 
 
   private final pneumatics s_Pneumatics = new pneumatics();
@@ -74,6 +80,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return ac_Startcenter;
+    return ac_Autoncommand;
   }
 }

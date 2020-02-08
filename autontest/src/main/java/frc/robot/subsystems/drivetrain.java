@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import com.analog.adis16470.frc.ADIS16470_IMU;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.Encoder;
@@ -22,20 +23,22 @@ public class drivetrain extends SubsystemBase {
    */
 
 
-  public Encoder encoderA = new Encoder(Constants.DriveConstants.driveEncoderA[0],Constants.DriveConstants.driveEncoderA[1]);
+  public Encoder encoderA = new Encoder(Constants.DriveConstants.driveEncoderA[0],Constants.DriveConstants.driveEncoderA[1], true);
   public Encoder encoderB = new Encoder(Constants.DriveConstants.driveEncoderB[0],Constants.DriveConstants.driveEncoderB[1]);
+  public final ADIS16470_IMU imu = new ADIS16470_IMU();
   
   SpeedControllerGroup right = new SpeedControllerGroup(new WPI_TalonSRX(Constants.DriveConstants.rF),new WPI_TalonSRX(Constants.DriveConstants.rR));
   SpeedControllerGroup left = new SpeedControllerGroup(new WPI_TalonSRX(Constants.DriveConstants.lF),new WPI_TalonSRX(Constants.DriveConstants.lR));
-    DifferentialDrive drive = new DifferentialDrive(left, right);
+   public DifferentialDrive drive = new DifferentialDrive(left, right);
 
   public drivetrain() {
-    
+
   }
 
   @Override
   public void periodic() {
-    SmartDashboard.setDefaultNumber("Distance", encoderA.getDistance());
+    SmartDashboard.putNumber("RawY", imu.getAngle());
+    SmartDashboard.putNumber("Distance", encoderA.getDistance());
     encoderA.setDistancePerPulse(Constants.PIDConstants.tick2feet);
     // This method will be called once per scheduler run
   }
@@ -49,8 +52,8 @@ public class drivetrain extends SubsystemBase {
     encoderB.reset();
   }
 
-  public void drivectrl(Double x,Double z) {
-    drive.arcadeDrive(x, z, false);
+  public void drivectrl(Double fwd,Double rot) {
+    drive.arcadeDrive(fwd, rot);
   }  
 
 }
