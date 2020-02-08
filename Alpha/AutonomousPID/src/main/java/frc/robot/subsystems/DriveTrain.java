@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.EncoderConstants;
@@ -31,6 +32,10 @@ public class DriveTrain extends SubsystemBase {
 
   public DriveTrain() {
 
+  }
+
+  public double GetGyro() {
+    return LocalGyro.getAngle();
   }
 
   public static double GetEncoderValue() {
@@ -51,6 +56,7 @@ public class DriveTrain extends SubsystemBase {
 
   @Override
   public void periodic() {
+    SmartDashboard.putNumber("Gyro Angle", GetGyro());
     // This method will be called once per scheduler run
   }
 }
