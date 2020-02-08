@@ -7,12 +7,14 @@
 
 package frc.robot.subsystems;
 
+import com.analog.adis16470.frc.ADIS16470_IMU;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.EncoderConstants;
@@ -24,6 +26,8 @@ public class DriveTrain extends SubsystemBase {
          new SpeedControllerGroup(new WPI_TalonSRX(DriveConstants.CAN_RF), new WPI_TalonSRX(DriveConstants.CAN_RR)));
 
   private static Encoder LeftEncoder = new Encoder(EncoderConstants.LeftEncoder[0], EncoderConstants.LeftEncoder[1], false, EncodingType.k4X);
+
+  private static Gyro LocalGyro = new ADIS16470_IMU();
 
   public DriveTrain() {
 
