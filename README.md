@@ -3,20 +3,19 @@
 CAN Assignments
 
   Drivetrain
-    RFMotor - TalonSRX(1)
-    RRMotor - VictorSPX(2)
-    LFMotor - TalonSRX(3)
-    LRMotor - VictorSPX(4)
+    RFMotor - TalonSRX(6)
+    RRMotor - TalonSRX(7)
+    LFMotor - TalonSRX(2)
+    LRMotor - TalonSRX(3)
 
   Arm
-    IntakeMotor - TalonSRX(5)
-    PitchMotor - TalonSRX(6)
+    IntakeMotor - TalonSRX(1)
+    PitchMotor - SparkMAX(9)
 
   Lift
-    ExtensionMotor - TalonSRX(7)
-    WinchMotor - TalonSRX(8)
+    ExtensionMotor - VictorSPX(4)
+    WinchMotor - VictorSPX(8)
 
   Wheel of Fortune
-    SpinMotor - SparkMAX(9)
-    Double Solenoid - (0, 1)
-    Color Sensor - (I2C Port)
+    SpinMotor - TalonSRX(5)
+    Double Solenoid - (0, 7)
