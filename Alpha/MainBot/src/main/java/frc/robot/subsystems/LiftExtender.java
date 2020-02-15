@@ -18,7 +18,7 @@ public class LiftExtender extends SubsystemBase {
   private final WPI_TalonSRX ExtensionMotor = new WPI_TalonSRX(LiftConstants.CAN_Extend);
 
   public void LiftExtend(){
-    ExtensionMotor.set(ControlMode.PercentOutput, 0.5);
+    ExtensionMotor.set(ControlMode.PercentOutput, 0.25);
   }
 
   public void LiftExtendIdle(){
