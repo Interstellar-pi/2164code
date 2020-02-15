@@ -28,7 +28,7 @@ public class DriveTrain extends SubsystemBase {
 
   public void Drive(double y, double z) {
 
-    MainDrive.arcadeDrive(y,-z,false);
+    MainDrive.arcadeDrive(-y,z,false);
     
   }
 

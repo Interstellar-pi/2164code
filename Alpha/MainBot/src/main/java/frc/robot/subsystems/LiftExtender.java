@@ -8,14 +8,14 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.LiftConstants;
 
 public class LiftExtender extends SubsystemBase {
 
-  private final WPI_TalonSRX ExtensionMotor = new WPI_TalonSRX(LiftConstants.CAN_Extend);
+  private final WPI_VictorSPX ExtensionMotor = new WPI_VictorSPX(LiftConstants.CAN_Extend);
 
   public void LiftExtend(){
     ExtensionMotor.set(ControlMode.PercentOutput, 0.25);

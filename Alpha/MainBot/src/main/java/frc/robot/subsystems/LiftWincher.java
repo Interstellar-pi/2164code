@@ -8,14 +8,14 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.LiftConstants;
 
 public class LiftWincher extends SubsystemBase {
 
-  private final WPI_TalonSRX WinchMotor = new WPI_TalonSRX(LiftConstants.CAN_Winch);
+  private final WPI_VictorSPX WinchMotor = new WPI_VictorSPX(LiftConstants.CAN_Winch);
 
   public void LiftWinch(){
     WinchMotor.set(ControlMode.PercentOutput, 0.5);
