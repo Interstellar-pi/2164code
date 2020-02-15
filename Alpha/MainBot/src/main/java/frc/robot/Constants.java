@@ -18,28 +18,28 @@ package frc.robot;
 public final class Constants {
 
     public static class DriveConstants{
-        public static final int CAN_RF = 1; //TalonSRX
-        public static final int CAN_RR = 2; //VictorSPX
-        public static final int CAN_LF = 3; //TalonSRX
-        public static final int CAN_LR = 4; //VictorSPX
+        public static final int CAN_RF = 6; //TalonSRX
+        public static final int CAN_RR = 7; //TalonSRX
+        public static final int CAN_LF = 2; //TalonSRX
+        public static final int CAN_LR = 3; //TalonSRX
     }
 
     public static class ArmConstants{
-        public static final int CAN_Intake = 5; //TalonSRX
-        public static final int CAN_Pitch = 6; //TalonSRX
+        public static final int CAN_Intake = 1; //TalonSRX
+        public static final int CAN_Pitch = 9; //SparkMAX
     }
     
     public static class LiftConstants{
-        public static final int CAN_Extend = 7; //TalonSRX
-        public static final int CAN_Winch = 8; //TalonSRX
+        public static final int CAN_Extend = 4; //VictorSPX
+        public static final int CAN_Winch = 8; //VictorSPX
     }
 
     public static class WoFConstants{
-        public static final int CAN_Spin = 9; //SparkMAX
-        public static final int CAN_PCM = 12; //PCM
+        public static final int CAN_Spin = 5; //TalonSRX
+        public static final int CAN_PCM = 10; //PCM
         public static final int PCM_Port0 = 0; //Double Solenoid Valve #1
-        public static final int PCM_Port1 = 1; //Double Solenoid Valve #2
-        public static final int[] PCM_WoFSol = {0,1}; //WoF Solenoid
+        public static final int PCM_Port1 = 7; //Double Solenoid Valve #2
+        public static final int[] PCM_WoFSol = {0,7}; //WoF Solenoid
     }
 
     public static class OIConstants{
