@@ -10,19 +10,21 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.WoFConstants;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class WoFMotor extends SubsystemBase {
 
-  private final CANSparkMax SpinMotor = new CANSparkMax(WoFConstants.CAN_Spin, MotorType.kBrushed);
+  private final WPI_TalonSRX SpinMotor = new WPI_TalonSRX(WoFConstants.CAN_Spin);
 
   public void WoFSpin(){
-    SpinMotor.set(0.5);
+    SpinMotor.set(ControlMode.PercentOutput, 0.5);
+    //SpinMotor.set(0.5);
   }
 
   public void WoFIdle(){
-    SpinMotor.set(0);
+    SpinMotor.set(ControlMode.PercentOutput, 0.0);
+    //SpinMotor.set(0);
   }
 
   public WoFMotor() {

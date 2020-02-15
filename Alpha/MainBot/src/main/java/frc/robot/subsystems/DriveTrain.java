@@ -18,9 +18,9 @@ import frc.robot.Constants.DriveConstants;
 public class DriveTrain extends SubsystemBase {
   
   private final WPI_TalonSRX RFMotor = new WPI_TalonSRX(DriveConstants.CAN_RF);
-  private final WPI_VictorSPX RRMotor = new WPI_VictorSPX(DriveConstants.CAN_RR);
+  private final WPI_TalonSRX RRMotor = new WPI_TalonSRX(DriveConstants.CAN_RR);
   private final WPI_TalonSRX LFMotor = new WPI_TalonSRX(DriveConstants.CAN_LF);
-  private final WPI_VictorSPX LRMotor = new WPI_VictorSPX(DriveConstants.CAN_LR);
+  private final WPI_TalonSRX LRMotor = new WPI_TalonSRX(DriveConstants.CAN_LR);
 
   private final SpeedControllerGroup RDrive = new SpeedControllerGroup(RFMotor, RRMotor);
   private final SpeedControllerGroup LDrive = new SpeedControllerGroup(LFMotor, LRMotor);

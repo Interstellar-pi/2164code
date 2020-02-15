@@ -44,13 +44,13 @@ public final class Constants {
 
     public static class OIConstants{
         public static final int JS1 = 0; //Joystick 1 Port
-        public static final int ArmUpButton = 2; //Joystick 1 ArmUp
-        public static final int ArmDownButton = 4; //Joystick 1 ArmDown
-        public static final int CollectorIntakeButton = 3; //Joystick 1 CollectorIntake
+        public static final int ArmUpButton = 5; //Joystick 1 ArmUp
+        public static final int ArmDownButton = 3; //Joystick 1 ArmDown
+        public static final int CollectorIntakeButton = 2; //Joystick 1 CollectorIntake
         public static final int CollectorShootButton = 1; //Joystick 1 CollectorShoot
-        public static final int LiftExtendButton = 9; //Joystick 1 LiftExtend
-        public static final int LiftWinchButton = 10; //Joystick 1 LiftWinch
-        public static final int WoFArmToggleButton = 5; //Joystick 1 WoFArmToggle
-        public static final int WoFMotorSpinButton = 7; //Joystick 1 WoFMotorSpin
+        public static final int LiftExtendButton = 6; //Joystick 1 LiftExtend
+        public static final int LiftWinchButton = 4; //Joystick 1 LiftWinch
+        public static final int WoFArmToggleButton = 9; //Joystick 1 WoFArmToggle
+        public static final int WoFMotorSpinButton = 10; //Joystick 1 WoFMotorSpin
     }
 }

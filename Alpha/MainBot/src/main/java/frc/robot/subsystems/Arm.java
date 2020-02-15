@@ -7,26 +7,29 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.ArmConstants;
 
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 public class Arm extends SubsystemBase {
 
-  private final WPI_TalonSRX PitchMotor = new WPI_TalonSRX(ArmConstants.CAN_Pitch);
+  private final CANSparkMax PitchMotor = new CANSparkMax(ArmConstants.CAN_Pitch, MotorType.kBrushed);
 
   public void ArmUp(){
-    PitchMotor.set(ControlMode.PercentOutput, 0.5);
+    PitchMotor.set(0.5);
+    //PitchMotor.set(ControlMode.PercentOutput, 0.5);
   }
 
   public void ArmDown(){
-    PitchMotor.set(ControlMode.PercentOutput, -0.5);
+    PitchMotor.set(-0.5);
+    //PitchMotor.set(ControlMode.PercentOutput, -0.5);
   }
 
   public void ArmIdle(){
-    PitchMotor.set(ControlMode.PercentOutput, 0);
+    PitchMotor.set(0.0);
+    //PitchMotor.set(ControlMode.PercentOutput, 0);
   }
 
   public Arm() {
