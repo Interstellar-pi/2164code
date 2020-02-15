@@ -21,6 +21,10 @@ public class LiftWincher extends SubsystemBase {
     WinchMotor.set(ControlMode.PercentOutput, 0.5);
   }
 
+  public void LiftWinchReverse(){
+    WinchMotor.set(ControlMode.PercentOutput, -0.5);
+  }
+
   public void LiftWinchIdle(){
     WinchMotor.set(ControlMode.PercentOutput, 0);
   }

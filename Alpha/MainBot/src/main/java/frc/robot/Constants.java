@@ -49,7 +49,9 @@ public final class Constants {
         public static final int CollectorIntakeButton = 2; //Joystick 1 CollectorIntake
         public static final int CollectorShootButton = 1; //Joystick 1 CollectorShoot
         public static final int LiftExtendButton = 6; //Joystick 1 LiftExtend
+        public static final int LiftExtenderRetractButton = 7; //Joystick 1 LiftExtenderRetract
         public static final int LiftWinchButton = 4; //Joystick 1 LiftWinch
+        public static final int LiftWincherLoosenButton = 8; //Joystick 1 LiftWincherLoosen
         public static final int WoFArmToggleButton = 9; //Joystick 1 WoFArmToggle
         public static final int WoFMotorSpinButton = 10; //Joystick 1 WoFMotorSpin
     }

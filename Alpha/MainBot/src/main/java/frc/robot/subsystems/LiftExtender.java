@@ -21,6 +21,10 @@ public class LiftExtender extends SubsystemBase {
     ExtensionMotor.set(ControlMode.PercentOutput, 0.25);
   }
 
+  public void LiftExtendReverse(){
+    ExtensionMotor.set(ControlMode.PercentOutput, -0.25);
+  }
+
   public void LiftExtendIdle(){
     ExtensionMotor.set(ControlMode.PercentOutput, 0);
   }
