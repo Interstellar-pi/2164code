@@ -17,7 +17,18 @@ package frc.robot;
  */
 public final class Constants {
 
+    public static class OIConstants {
+        public static final int DriveJS = 0;
+        public static final int x_axis = 0;
+        public static final int y_axis = 1;
+        public static final int z_axis = 5;
+        public static final int EncoderResetButton = 2;
+        public static final int ArmDownButton = 5;
+        public static final int ArmUpButton = 6;
+    }
+
     public static class ArmConstants {
         public static final int CAN_Pitch = 9;
+        public static final int[] EncoderPorts = {4,5};
     }
 }

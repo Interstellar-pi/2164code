@@ -8,8 +8,14 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.Constants.OIConstants;
+import frc.robot.commands.EncoderReset;
+import frc.robot.commands.PIDArmDown;
+import frc.robot.commands.PIDArmUp;
 import frc.robot.subsystems.PIDArm;
 
 /**
@@ -20,10 +26,26 @@ import frc.robot.subsystems.PIDArm;
  */
 public class RobotContainer {
 
+  public Joystick JS1 = new Joystick(OIConstants.DriveJS);
+  public JoystickButton EncoderResetButton = new JoystickButton(JS1, OIConstants.EncoderResetButton);
+  public JoystickButton ArmDownButton = new JoystickButton(JS1, OIConstants.ArmDownButton);
+  public JoystickButton ArmUpButton = new JoystickButton(JS1, OIConstants.ArmUpButton);
+  
+
   private final PIDArm rc_PIDArm = new PIDArm();
+  private final EncoderReset rc_EncoderReset = new EncoderReset(rc_PIDArm);
+  private final PIDArmDown rc_PIDArmDown = new PIDArmDown(rc_PIDArm);
+  private final PIDArmUp rc_PIDArmUp = new PIDArmUp(rc_PIDArm);
 
   public RobotContainer() {
-    // Configure the button bindings
+    JS1.setXChannel(OIConstants.x_axis);
+    JS1.setYChannel(OIConstants.y_axis);
+    JS1.setZChannel(OIConstants.z_axis);
+
+    EncoderResetButton.whenPressed(rc_EncoderReset);
+    ArmUpButton.whenPressed(rc_PIDArmUp);
+    ArmDownButton.whenPressed(rc_PIDArmDown);
+
     configureButtonBindings();
   }
 
