@@ -58,8 +58,7 @@ public class PIDArm extends PIDSubsystem {
 
   @Override
   public void useOutput(double output, double setpoint) {
-    PitchMotor.set(-output);
-    System.out.println(output);
+    PitchMotor.set(output);
   }
 
   @Override

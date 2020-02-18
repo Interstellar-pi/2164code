@@ -13,6 +13,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.OIConstants;
+import frc.robot.commands.ArmDownManual;
+import frc.robot.commands.ArmIdle;
+import frc.robot.commands.ArmUpManual;
 import frc.robot.commands.EncoderReset;
 import frc.robot.commands.PIDArmDown;
 import frc.robot.commands.PIDArmUp;
@@ -27,24 +30,23 @@ import frc.robot.subsystems.PIDArm;
 public class RobotContainer {
 
   public Joystick JS1 = new Joystick(OIConstants.DriveJS);
+  public JoystickButton ArmDownManButton = new JoystickButton(JS1, OIConstants.ArmDownManButton);
+  public JoystickButton ArmUpManButton = new JoystickButton(JS1, OIConstants.ArmUpManButton);
   public JoystickButton EncoderResetButton = new JoystickButton(JS1, OIConstants.EncoderResetButton);
   public JoystickButton ArmDownButton = new JoystickButton(JS1, OIConstants.ArmDownButton);
   public JoystickButton ArmUpButton = new JoystickButton(JS1, OIConstants.ArmUpButton);
   
 
   private final PIDArm rc_PIDArm = new PIDArm();
+  private final ArmDownManual rc_ArmDownManual = new ArmDownManual(rc_PIDArm);
+  private final ArmIdle rc_ArmIdle = new ArmIdle(rc_PIDArm);
+  private final ArmUpManual rc_ArmUpManual = new ArmUpManual(rc_PIDArm);
   private final EncoderReset rc_EncoderReset = new EncoderReset(rc_PIDArm);
   private final PIDArmDown rc_PIDArmDown = new PIDArmDown(rc_PIDArm);
   private final PIDArmUp rc_PIDArmUp = new PIDArmUp(rc_PIDArm);
 
   public RobotContainer() {
-    JS1.setXChannel(OIConstants.x_axis);
-    JS1.setYChannel(OIConstants.y_axis);
-    JS1.setZChannel(OIConstants.z_axis);
-
-    EncoderResetButton.whenPressed(rc_EncoderReset);
-    ArmUpButton.whenPressed(rc_PIDArmUp);
-    ArmDownButton.whenPressed(rc_PIDArmDown);
+    rc_PIDArm.setDefaultCommand(rc_ArmIdle);
 
     configureButtonBindings();
   }
@@ -56,6 +58,14 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    JS1.setXChannel(OIConstants.x_axis);
+    JS1.setYChannel(OIConstants.y_axis);
+    JS1.setZChannel(OIConstants.z_axis);
+    ArmDownManButton.whenPressed(rc_ArmDownManual);
+    ArmUpManButton.whenPressed(rc_ArmUpManual);
+    EncoderResetButton.whenPressed(rc_EncoderReset);
+    ArmUpButton.whenPressed(rc_PIDArmUp);
+    ArmDownButton.whenPressed(rc_PIDArmDown);
   }
 
 
