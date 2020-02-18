@@ -10,13 +10,13 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.PIDArm;
 
-public class PIDArmUp extends CommandBase {
+public class ArmDownManual extends CommandBase {
 
   private final PIDArm l_pidarm;
   /**
-   * Creates a new ArmUp.
+   * Creates a new ArmDownManual.
    */
-  public PIDArmUp(PIDArm subsystem) {
+  public ArmDownManual(PIDArm subsystem) {
     l_pidarm = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
@@ -25,14 +25,12 @@ public class PIDArmUp extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    l_pidarm.enable();
-    System.out.println("Arm up initialized");
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_pidarm.ArmUp();
+    l_pidarm.ArmDownManual();
   }
 
   // Called once the command ends or is interrupted.

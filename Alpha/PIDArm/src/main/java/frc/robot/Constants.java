@@ -23,8 +23,10 @@ public final class Constants {
         public static final int y_axis = 1;
         public static final int z_axis = 5;
         public static final int EncoderResetButton = 2;
-        public static final int ArmDownButton = 5;
-        public static final int ArmUpButton = 6;
+        public static final int ArmDownButton = 3;
+        public static final int ArmUpButton = 5;
+        public static final int ArmDownManButton = 4;
+        public static final int ArmUpManButton = 6;
     }
 
     public static class ArmConstants {

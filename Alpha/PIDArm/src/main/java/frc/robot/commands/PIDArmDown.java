@@ -33,7 +33,6 @@ public class PIDArmDown extends CommandBase {
   @Override
   public void execute() {
     l_pidarm.ArmDown();
-    l_pidarm.setSetpoint(-418.75);
   }
 
   // Called once the command ends or is interrupted.
