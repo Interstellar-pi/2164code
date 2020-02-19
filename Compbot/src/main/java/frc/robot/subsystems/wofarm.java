@@ -8,8 +8,6 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
@@ -18,7 +16,7 @@ import frc.robot.Constants.WOFConstants;
 
 public class wofarm extends SubsystemBase {
 
-   private DoubleSolenoid armSolenoid = new DoubleSolenoid(WOFConstants.pCM,WOFConstants.arm[0],WOFConstants.arm[1]);
+   public DoubleSolenoid armSolenoid = new DoubleSolenoid(WOFConstants.pCM,WOFConstants.arm[0],WOFConstants.arm[1]);
    private WPI_TalonSRX m_spinner = new WPI_TalonSRX(WOFConstants.spinner);
   public wofarm() {
 
@@ -28,15 +26,19 @@ public class wofarm extends SubsystemBase {
   public void periodic() {
 
   }
-
-  public void armmovement() {
   
-    if(armSolenoid.get() == Value.kForward){
-      armSolenoid.set(Value.kReverse);
-    } else if(armSolenoid.get() == Value.kReverse){
-      armSolenoid.set(Value.kForward);
-    }
-
+  public void armup() {
+     armSolenoid.set(Value.kReverse);
+   }
+  
+  public void armdown() {
+    armSolenoid.set(Value.kForward);
   }
+
+  public void spinmotor()  {
+    m_spinner.set(1);
+  }
+
+  
 
 }

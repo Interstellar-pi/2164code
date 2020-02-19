@@ -7,35 +7,16 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.wofarm;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
-public class wofspin extends CommandBase {
-  private final wofarm s_WOFArm;
+// NOTE:  Consider using this command inline, rather than writing a subclass.  For more
+// information, see:
+// https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
+public class autoncommand extends SequentialCommandGroup {
   /**
-   * Creates a new wofspin.
+   * Creates a new autoncommand.
    */
-  public wofspin(wofarm subsystem) {
-    
-    s_WOFArm = subsystem;
-    addRequirements(s_WOFArm);
-  }
-
-  @Override
-  public void initialize() {
-  }
-
-  @Override
-  public void execute() {
-    s_WOFArm.spinmotor();
-  }
-
-  @Override
-  public void end(boolean interrupted) {
-  }
-
-  @Override
-  public boolean isFinished() {
-    return false;
+  public autoncommand() {
+    super();
   }
 }

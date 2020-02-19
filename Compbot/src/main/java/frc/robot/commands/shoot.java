@@ -12,11 +12,11 @@ import frc.robot.Constants;
 import frc.robot.subsystems.collector;
 
 public class shoot extends CommandBase {
-  private final collector collector;
+  private final collector s_collector;
 
   public shoot(collector subsystem) {
     
-    collector = subsystem;
+    s_collector = subsystem;
     addRequirements(subsystem);
   }
 
@@ -26,7 +26,7 @@ public class shoot extends CommandBase {
 
   @Override
   public void execute() { 
-    collector.shoot(Constants.CollectorConstants.rollerinverted);
+    s_collector.shoot(Constants.CollectorConstants.rollerinverted);
   }
 
   @Override

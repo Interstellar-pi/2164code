@@ -7,9 +7,11 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.autoncommand;
 import frc.robot.commands.climb;
 import frc.robot.commands.collect;
 import frc.robot.commands.collectordown;
@@ -19,13 +21,10 @@ import frc.robot.commands.liftidle;
 import frc.robot.commands.shoot;
 import frc.robot.commands.wofspin;
 import frc.robot.commands.woftoggle;
-import frc.robot.subsystems.lift;
-import frc.robot.subsystems.wofarm;
 import frc.robot.subsystems.collector;
 import frc.robot.subsystems.drivetrain;
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.RunCommand;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.subsystems.lift;
+import frc.robot.subsystems.wofarm;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -34,7 +33,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
  * (including subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-  // The robot's subsystems and commands are defined here...
+  private final autoncommand ac_Autoncommand = new autoncommand();
   private final drivetrain s_Drivetrain = new drivetrain();
   private final collector s_Collector = new collector();
     private final collect c_Collect = new collect(s_Collector);
@@ -95,7 +94,6 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
-    return null;
+    return ac_Autoncommand;
   }
 }

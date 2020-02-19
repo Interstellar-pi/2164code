@@ -7,23 +7,28 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.wofarm;
 
 public class woftoggle extends CommandBase {
-  private final wofarm wofarm;
+  private final wofarm s_WOFArm;
   /**
    * Creates a new woftoggle.
    */
   public woftoggle(wofarm subsystem) {
     
-    wofarm = subsystem;
+    s_WOFArm = subsystem;
     addRequirements(subsystem);
   }
   
   @Override
   public void initialize() {
-    wofarm.armmovement();
+    if(s_WOFArm.armSolenoid.get() == Value.kForward){
+    s_WOFArm.armup();
+    } else if(s_WOFArm.armSolenoid.get() == Value.kReverse){
+      s_WOFArm.armdown();
+    }
   }
 
   @Override
@@ -36,6 +41,6 @@ public class woftoggle extends CommandBase {
 
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }
