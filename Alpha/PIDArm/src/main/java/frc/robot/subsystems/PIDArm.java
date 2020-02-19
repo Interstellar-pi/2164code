@@ -26,49 +26,36 @@ public class PIDArm extends PIDSubsystem {
   private final Encoder ArmEncoder = new Encoder(ArmConstants.EncoderPorts[0], ArmConstants.EncoderPorts[1], false, EncodingType.k4X);
   //Starting position reset at 0, fully down is -418.75, fully up in game position is -84.75
 
-  public void ArmUpManual() {
-    PitchMotor.set(-0.2);
-  }
-
-  public void ArmDownManual() {
-    PitchMotor.set(0.2);
-  }
-
-  public void ArmIdle() {
-    PitchMotor.set(0);
-  }
-
-  public void EncoderReset() {
-    ArmEncoder.reset();
-  }
-
-  public void ArmDown() {
-    getController().setSetpoint(-418.75);
-  }
-
-  public void ArmUp() {
-    getController().setSetpoint(-84.75);
-  }
-
   public PIDArm() {
     super(
         // The PIDController used by the subsystem
-        new PIDController(.2, 0, 0));
+        new PIDController(0.05, .005, 0.005));
+        getController().setTolerance(10);
+        setSetpoint(-418.75);
+        //getController().set
+        ArmEncoder.reset();
+        enable();
   }
 
   @Override
   public void useOutput(double output, double setpoint) {
-    PitchMotor.set(output);
+    PitchMotor.set(-output);
+    System.out.println("output"+ -output);
+    System.out.println("setpoint" + setpoint);
   }
 
   @Override
   public double getMeasurement() {
+    System.out.println("encoder value" + ArmEncoder.getDistance());
     // Return the process variable measurement here
     return ArmEncoder.getDistance();
   }
 
-  @Override
-  public void periodic() {
-    SmartDashboard.putNumber("ArmPosition", ArmEncoder.getDistance());
+  public void Setpoint(double x) {
+    super.setSetpoint(x);
+  }
+
+  public void EncoderReset() {
+    ArmEncoder.reset();
   }
 }

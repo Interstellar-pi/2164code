@@ -25,14 +25,13 @@ public class PIDArmDown extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    l_pidarm.enable();
+    l_pidarm.Setpoint(-418.75);
     System.out.println("Arm down initialized");
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_pidarm.ArmDown();
   }
 
   // Called once the command ends or is interrupted.
