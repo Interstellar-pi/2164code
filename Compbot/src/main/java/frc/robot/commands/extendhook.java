@@ -12,11 +12,11 @@ import frc.robot.Constants;
 import frc.robot.subsystems.lift;
 
 public class extendhook extends CommandBase {
-  private final lift lift;
+  private final lift s_Lift;
   
   public extendhook(lift subsystem) {
     
-    lift = subsystem;
+    s_Lift = subsystem;
     addRequirements(subsystem);
   }
 
@@ -28,7 +28,7 @@ public class extendhook extends CommandBase {
   
   @Override
   public void execute() {
-    lift.extend(Constants.LiftConstants.extensioninverted);
+    s_Lift.extend(Constants.LiftConstants.extensioninverted);
   }
 
   

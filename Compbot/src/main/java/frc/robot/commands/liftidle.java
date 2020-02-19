@@ -11,11 +11,11 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.lift;
 
 public class liftidle extends CommandBase {
-  private final lift s_lift;
+  private final lift s_Lift;
 
   public liftidle(lift subsystem) {
     
-    s_lift = subsystem;
+    s_Lift = subsystem;
     addRequirements(subsystem);
   }
 
@@ -25,7 +25,7 @@ public class liftidle extends CommandBase {
 
   @Override
   public void execute() {
-    s_lift.idle();
+    s_Lift.idle();
   }
 
   @Override

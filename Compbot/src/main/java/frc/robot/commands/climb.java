@@ -12,11 +12,11 @@ import frc.robot.Constants;
 import frc.robot.subsystems.lift;
 
 public class climb extends CommandBase {
-  private final lift s_lift;
+  private final lift s_Lift;
 
   public climb(lift subsystem) {
     
-    s_lift = subsystem;
+    s_Lift = subsystem;
     addRequirements(subsystem);
   }
 
@@ -26,7 +26,7 @@ public class climb extends CommandBase {
 
   @Override
   public void execute() {
-    s_lift.retract(Constants.LiftConstants.extensioninverted, Constants.LiftConstants.winchinverted);
+    s_Lift.retract(Constants.LiftConstants.extensioninverted, Constants.LiftConstants.winchinverted);
   }
   
   @Override
