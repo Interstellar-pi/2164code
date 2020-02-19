@@ -13,32 +13,26 @@ import frc.robot.subsystems.lift;
 
 public class climb extends CommandBase {
   private final lift lift;
-  /**
-   * Creates a new climb.
-   */
+
   public climb(lift subsystem) {
-    // Use addRequirements() here to declare subsystem dependencies.
+    
     lift = subsystem;
     addRequirements(subsystem);
   }
 
-  // Called when the command is initially scheduled.
   @Override
   public void initialize() {
   }
 
-  // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     lift.retract(Constants.LiftConstants.extensioninverted, Constants.LiftConstants.winchinverted);
   }
-
-  // Called once the command ends or is interrupted.
+  
   @Override
   public void end(boolean interrupted) {
   }
 
-  // Returns true when the command should end.
   @Override
   public boolean isFinished() {
     return false;

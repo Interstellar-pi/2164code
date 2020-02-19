@@ -16,12 +16,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class drivetrain extends SubsystemBase {
-  /**
-   * Creates a new drivetrain.
-   */
 
-  SpeedControllerGroup right = new SpeedControllerGroup(new WPI_TalonSRX(Constants.DriveConstants.rF),new WPI_VictorSPX(Constants.DriveConstants.rR));
-  SpeedControllerGroup left = new SpeedControllerGroup(new WPI_TalonSRX(Constants.DriveConstants.lF),new WPI_VictorSPX(Constants.DriveConstants.lR));
+  SpeedControllerGroup right = new SpeedControllerGroup(new WPI_TalonSRX(Constants.DriveConstants.rF),new WPI_TalonSRX(Constants.DriveConstants.rR));
+  SpeedControllerGroup left = new SpeedControllerGroup(new WPI_TalonSRX(Constants.DriveConstants.lF),new WPI_TalonSRX(Constants.DriveConstants.lR));
     DifferentialDrive drive = new DifferentialDrive(left, right);
 
   public drivetrain() {
@@ -29,11 +26,11 @@ public class drivetrain extends SubsystemBase {
 
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
+ 
   }
 
   public void drivectrl(Double x,Double z) {
-    drive.arcadeDrive(x, z);
+    drive.arcadeDrive(-x, -z);
   }  
 
 }

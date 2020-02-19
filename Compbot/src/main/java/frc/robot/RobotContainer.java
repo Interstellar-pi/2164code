@@ -50,9 +50,6 @@ public class RobotContainer {
     private final wofspin c_Wofspin = new wofspin(s_Wofarm);
 
 
-  /**
-   * The container for the robot.  Contains subsystems, OI devices, and commands.
-   */
   public Joystick drivestick = new Joystick(Constants.OIConstants.stick1);
   public JoystickButton b_shoot = new JoystickButton(drivestick, Constants.OIConstants.shootbtn);
   public JoystickButton b_collect = new JoystickButton(drivestick, Constants.OIConstants.collectbtn);
@@ -68,6 +65,7 @@ public class RobotContainer {
   public RobotContainer() {
     s_Drivetrain.setDefaultCommand(new RunCommand(() -> s_Drivetrain.drivectrl(drivestick.getY(), -drivestick.getZ()), s_Drivetrain));
     s_Lift.setDefaultCommand(c_Liftidle);
+    s_Collector.ereset();
 
 
 
@@ -78,12 +76,6 @@ public class RobotContainer {
     configureButtonBindings();
   }
 
-  /**
-   * Use this method to define your button->command mappings.  Buttons can be created by
-   * instantiating a {@link GenericHID} or one of its subclasses ({@link
-   * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a
-   * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
-   */
   private void configureButtonBindings() {
     b_shoot.whenHeld(c_Shoot);
     b_collect.whenHeld(c_Collect);

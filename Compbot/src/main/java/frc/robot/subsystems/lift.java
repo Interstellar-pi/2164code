@@ -8,25 +8,22 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class lift extends SubsystemBase {
-  private WPI_TalonSRX m_extend = new WPI_TalonSRX(Constants.LiftConstants.extensionmotor);
-  private WPI_TalonSRX m_winch = new WPI_TalonSRX(Constants.LiftConstants.winchmotor);
+  private WPI_VictorSPX m_extend = new WPI_VictorSPX(Constants.LiftConstants.extensionmotor);
+  private WPI_VictorSPX m_winch = new WPI_VictorSPX(Constants.LiftConstants.winchmotor);
 
-  /**
-   * Creates a new lift.
-   */
   public lift() {
 
   }
 
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
+  
   }
 
   public void extend(Boolean inverted){

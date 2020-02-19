@@ -8,45 +8,38 @@
 package frc.robot;
 
 
-/**
- * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
- * constants.  This class should not be used for any other purpose.  All constants should be
- * declared globally (i.e. public static).  Do not put anything functional in this class.
- *
- * <p>It is advised to statically import this class (or one of its inner classes) wherever the
- * constants are needed, to reduce verbosity.
- */
 public final class Constants {
 
     public static class DriveConstants {
-        public static final int rF = 1; //TalonSRX
-        public static final int rR = 2; //VictorSPX
-        public static final int lF = 3; //TalonSRX
-        public static final int lR = 4; //VictorSPX
+        public static final int rF = 6; //TalonSRX
+        public static final int rR = 7; //VictorSPX
+        public static final int lF = 2; //TalonSRX
+        public static final int lR = 3; //VictorSPX
         public static final int[] driveEncoderA = new int[] {0,1};
         public static final int[] driveEncoderB= new int[] {2,3};
     }
 
     public static class CollectorConstants  {
-        public static final int rollermotor = 5; //TalonSRX
+        public static final int rollermotor = 1; //TalonSRX
             public static final boolean rollerinverted = false;
-        public static final int pitchmotor = 6; //TalonSRX
+        public static final int pitchmotor = 9; //TalonSRX
             public static final boolean pitchinverted = false;
+        public static final int[] sensorPorts = new int[] {4,5};
 
     }
 
     public static class LiftConstants   {
-        public static final int extensionmotor = 7; //TalonSRX
+        public static final int extensionmotor = 4; //TalonSRX
             public static final boolean extensioninverted = false;
         public static final int winchmotor = 8; //TalonSRX
             public static final boolean winchinverted = false;
     }
 
     public static class WOFConstants    {
-        public static final int spinner = 9; //Spark Max
+        public static final int spinner = 5; //Spark Max
             public static final boolean spinnerinverted = false;
         public static final int pCM = 10;
-        public static final int[] arm = new int[]{0,1};
+        public static final int[] arm = new int[]{0,7};
     }
 
     public static class OIConstants {

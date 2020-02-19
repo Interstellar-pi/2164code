@@ -8,39 +8,32 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
 import frc.robot.subsystems.collector;
 
 public class collectorup extends CommandBase {
-  private final collector collector;
-  /**
-   * Creates a new collectorup.
-   */
+  private final collector s_Collector;
+
   public collectorup(collector subsystem) {
-    // Use addRequirements() here to declare subsystem dependencies.
-    collector = subsystem;
+    s_Collector = subsystem;
     addRequirements(subsystem);
   }
 
-  // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    s_Collector.changeSetpoint(-84.75);
+    //s_Collector.uppos();
   }
 
-  // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    collector.uppos(Constants.CollectorConstants.pitchinverted);
   }
 
-  // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
   }
 
-  // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return s_Collector.getController().atSetpoint();
   }
 }

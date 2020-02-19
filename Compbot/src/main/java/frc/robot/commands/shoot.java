@@ -13,33 +13,26 @@ import frc.robot.subsystems.collector;
 
 public class shoot extends CommandBase {
   private final collector collector;
-  /**
-   * Creates a new shoot.
-   */
+
   public shoot(collector subsystem) {
-    // Use addRequirements() here to declare subsystem dependencies.
+    
     collector = subsystem;
     addRequirements(subsystem);
   }
 
-  // Called when the command is initially scheduled.
   @Override
   public void initialize() {
   }
 
-  // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() { 
     collector.shoot(Constants.CollectorConstants.rollerinverted);
   }
 
-  // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-   
   }
 
-  // Returns true when the command should end.
   @Override
   public boolean isFinished() {
     return false;
