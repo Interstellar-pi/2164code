@@ -7,6 +7,9 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalOutput;
+import edu.wpi.first.wpilibj.DigitalSource;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.controller.PIDController;
@@ -24,6 +27,7 @@ public class PIDArm extends PIDSubsystem {
   //private final CANEncoder ArmEncoder = new CANEncoder(PitchMotor);
   //private final CANEncoder ArmEncoder = PitchMotor.getEncoder(EncoderType.kQuadrature, 8192);
   private final Encoder ArmEncoder = new Encoder(ArmConstants.EncoderPorts[0], ArmConstants.EncoderPorts[1], false, EncodingType.k4X);
+  private final DigitalSource AbsArmEncoder = new DigitalOutput(3);
   //Starting position reset at 0, fully down is -418.75, fully up in game position is -84.75
 
   public PIDArm() {
