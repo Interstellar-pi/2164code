@@ -29,33 +29,45 @@ public class PIDArm extends PIDSubsystem {
   public PIDArm() {
     super(
         // The PIDController used by the subsystem
-        new PIDController(0.05, .005, 0.005));
-        getController().setTolerance(10);
-        setSetpoint(-418.75);
+        new PIDController(0.5, .1, 0.02));
+        setSetpoint(0);
+        getController().setTolerance(15);
         //getController().set
         ArmEncoder.reset();
-        enable();
+        //enable();
   }
 
   @Override
   public void useOutput(double output, double setpoint) {
+    if(output >= 0.5) {
+      output = 0.5;
+    }
+    if(getController().atSetpoint() == true) {
+      output = 0;
+    }
     PitchMotor.set(-output);
-    System.out.println("output"+ -output);
-    System.out.println("setpoint" + setpoint);
+    SmartDashboard.putNumber("PIDOutput", -output);
+    SmartDashboard.putNumber("PIDSetpoint", setpoint);
   }
 
   @Override
   public double getMeasurement() {
-    System.out.println("encoder value" + ArmEncoder.getDistance());
+    SmartDashboard.putNumber("EncoderValue", ArmEncoder.getDistance());
     // Return the process variable measurement here
     return ArmEncoder.getDistance();
   }
 
   public void Setpoint(double x) {
     super.setSetpoint(x);
+    super.enable();
   }
 
   public void EncoderReset() {
     ArmEncoder.reset();
+    super.disable();
+  }
+
+  public void PIDDisable() {
+    super.disable();
   }
 }
