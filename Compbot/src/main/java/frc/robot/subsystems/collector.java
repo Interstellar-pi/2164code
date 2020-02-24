@@ -31,18 +31,26 @@ public class collector extends PIDSubsystem {
   public collector() {
     super(
         // The PIDController used by the subsystem
-        new PIDController(.75, 0, 0));
-        getController().setTolerance(3);
+        new PIDController(0.1, 0.01, 0.0));
+        getController().setTolerance(30);
+        setSetpoint(0.0);
         enable();
-        
   }
 
   @Override
   public void useOutput(double output, double setpoint) {
+
+    if(output > 0.5){
+      output = 0.5;
+    } 
+    if(output > -0.5){
+      output = -0.5;
+    } 
     m_pitch.set(-output);
     SmartDashboard.putNumber("Output", output);
-    // Use the output here
   }
+    // Use the output here
+  
 
   @Override
   public double getMeasurement() {
@@ -50,11 +58,6 @@ public class collector extends PIDSubsystem {
     return e_PitchEncoder.get();
   }
 
-
-  @Override
-  public void periodic() {
-    SmartDashboard.putNumber("Arm Position", e_PitchEncoder.getDistance());
-  }
 
   public void ereset(){
     e_PitchEncoder.reset();
@@ -66,15 +69,19 @@ public class collector extends PIDSubsystem {
 
   }
 
+  public void idle()  {
+    m_roller.set(0);
+  }
+
   public void shoot(boolean inverted) {
     m_roller.setInverted(inverted);
     m_roller.set(ControlMode.PercentOutput, 1.0);
   }
-
-  public void changeSetpoint(double setpoint) {
-    super.getController().setSetpoint(setpoint);
-  }
 /*
+  public void changeSetpoint(double setpoint) {
+    super.setSetpoint(setpoint);
+  }
+*/
   public void uppos()  {
     super.getController().setSetpoint(-84.75);
   }
@@ -82,6 +89,10 @@ public class collector extends PIDSubsystem {
   public void dwnpos()  {
     super.getController().setSetpoint(-418.75);
   }
-*/
+
+  public void armpos()  {
+    SmartDashboard.putNumber("Arm Position", e_PitchEncoder.get());
+  }
+
 
 }

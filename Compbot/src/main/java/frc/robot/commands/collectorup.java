@@ -20,8 +20,8 @@ public class collectorup extends CommandBase {
 
   @Override
   public void initialize() {
-    s_Collector.changeSetpoint(-84.75);
-    //s_Collector.uppos();
+    //s_Collector.changeSetpoint(-84.75);
+    s_Collector.uppos();
   }
 
   @Override
@@ -34,6 +34,6 @@ public class collectorup extends CommandBase {
 
   @Override
   public boolean isFinished() {
-    return s_Collector.getController().atSetpoint();
+    return false;//s_Collector.getController().atSetpoint();
   }
 }

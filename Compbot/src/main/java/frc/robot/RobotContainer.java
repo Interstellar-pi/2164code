@@ -14,11 +14,13 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.autoncommand;
 import frc.robot.commands.climb;
 import frc.robot.commands.collect;
+import frc.robot.commands.collectoridle;
 import frc.robot.commands.collectordown;
 import frc.robot.commands.collectorup;
 import frc.robot.commands.extendhook;
 import frc.robot.commands.liftidle;
 import frc.robot.commands.shoot;
+import frc.robot.commands.wofidle;
 import frc.robot.commands.wofspin;
 import frc.robot.commands.woftoggle;
 import frc.robot.subsystems.collector;
@@ -38,6 +40,7 @@ public class RobotContainer {
   private final collector s_Collector = new collector();
     private final collect c_Collect = new collect(s_Collector);
     private final shoot c_Shoot = new shoot(s_Collector);
+    private final collectoridle c_Collectoridle = new collectoridle(s_Collector);
     private final collectorup c_Collectorup = new collectorup(s_Collector);
     private final collectordown c_Collectordown = new collectordown(s_Collector);
   private final lift s_Lift = new lift();
@@ -47,6 +50,7 @@ public class RobotContainer {
   private final wofarm s_Wofarm = new wofarm();
     private final woftoggle c_Woftoggle = new woftoggle(s_Wofarm);
     private final wofspin c_Wofspin = new wofspin(s_Wofarm);
+    private final wofidle c_Wofidle = new wofidle(s_Wofarm);
 
 
   public Joystick drivestick = new Joystick(Constants.OIConstants.stick1);
@@ -64,6 +68,8 @@ public class RobotContainer {
   public RobotContainer() {
     s_Drivetrain.setDefaultCommand(new RunCommand(() -> s_Drivetrain.drivectrl(drivestick.getY(), -drivestick.getZ()), s_Drivetrain));
     s_Lift.setDefaultCommand(c_Liftidle);
+    s_Wofarm.setDefaultCommand(c_Wofidle);
+    s_Collector.setDefaultCommand(c_Collectoridle);
     s_Collector.ereset();
 
 
@@ -78,10 +84,10 @@ public class RobotContainer {
   private void configureButtonBindings() {
     b_shoot.whenHeld(c_Shoot);
     b_collect.whenHeld(c_Collect);
-    b_collectordwn.whenHeld(c_Collectordown);
-    b_collectorup.whenHeld(c_Collectorup);
+    b_collectordwn.whenActive(c_Collectordown);
+    b_collectorup.whenActive(c_Collectorup);
     b_wofarmtoggle.whenPressed(c_Woftoggle);
-    b_wofspin.whenPressed(c_Wofspin);
+    b_wofspin.whenHeld(c_Wofspin);
     b_extend.whenHeld(c_Extendhook);
     b_climb.whenHeld(c_Climb);
 

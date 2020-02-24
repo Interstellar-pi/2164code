@@ -26,6 +26,10 @@ public class wofarm extends SubsystemBase {
   public void periodic() {
 
   }
+
+  public void stop()  {
+    m_spinner.set(0);
+  }
   
   public void armup() {
      armSolenoid.set(Value.kReverse);

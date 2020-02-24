@@ -21,9 +21,8 @@ public class collectordown extends CommandBase {
 
   @Override
   public void initialize() {
-    s_Collector.changeSetpoint(-418.75);
-
-    //s_Collector.getController().setSetpoint(-418.75);
+    //s_Collector.changeSetpoint(-418.75);
+    s_Collector.dwnpos();
   }
 
   @Override
@@ -37,6 +36,6 @@ public class collectordown extends CommandBase {
   
   @Override
   public boolean isFinished() {
-    return s_Collector.getController().atSetpoint();
+    return false;//s_Collector.getController().atSetpoint();
   }
 }
