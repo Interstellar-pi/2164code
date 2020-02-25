@@ -17,24 +17,25 @@ package frc.robot;
  */
 public final class Constants {
 
-    public static class DriveConstants{
-        public static final int CAN_RF = 6;
-        public static final int CAN_RR = 7;
-        public static final int CAN_LF = 2;
-        public static final int CAN_LR = 3;
+    public static class DriveConstants {
+        public static final int RFMotor = 6;
+        public static final int RRMotor = 7;
+        public static final int LFMotor = 2;
+        public static final int LRMotor = 3;
+        public static final int[] r_encoder = {8,9};
+        public static final int[] l_encoder = {0,1};
     }
 
-    public static class EncoderConstants{
-        public static final int[] LeftEncoder = {6,7};
-        public static final int EncoderPPR = 280; //Encoder's pulse per revolution
+    public static class EncoderConstants {
+        public static final int EncoderPPR = 360; //Encoder's pulse per revolution
         public static final double WDiam = 6; //Inch diameter of the wheel
         public static final int ConvFact = 12; //Conversion factor (12 inches in a foot)
-        public static final double DPT = 1.0/EncoderPPR*WDiam*Math.PI/ConvFact; //Distance Per Tick calculation
+        public static final double DPT = 1.0/EncoderPPR*WDiam*Math.PI/ConvFact;
     }
 
-    public static class PCMConstants{
-        public static final int PCM = 10;
-        public static final int[] ShifterSol = {0,7};
-        public static final int[] CylinderSol = {2,4};
+    public static class OIConstants {
+        public static final int LogitechJoy = 0;
+        public static final int y_axis = 1;
+        public static final int z_axis = 4;
     }
 }
