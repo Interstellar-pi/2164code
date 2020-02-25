@@ -18,12 +18,12 @@ public class Arm extends SubsystemBase {
   private final CANSparkMax PitchMotor = new CANSparkMax(ArmConstants.CAN_Pitch, MotorType.kBrushed);
 
   public void ArmUp(){
-    PitchMotor.set(-0.2);
+    PitchMotor.set(-0.45);
     //PitchMotor.set(ControlMode.PercentOutput, 0.5);
   }
 
   public void ArmDown(){
-    PitchMotor.set(0.2);
+    PitchMotor.set(0.45);
     //PitchMotor.set(ControlMode.PercentOutput, -0.5);
   }
 

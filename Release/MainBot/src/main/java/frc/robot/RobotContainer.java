@@ -117,8 +117,8 @@ public class RobotContainer {
     LiftWincherLoosenButton.whileHeld(rc_LiftWincherLoosen);
     WoFArmToggleButton.whenPressed(rc_WoFArmToggle);
     WoFMotorSpinButton.whileHeld(rc_WoFMotorSpin);
-    JS1.setYChannel(1);
-    JS1.setZChannel(4);
+    //JS1.setYChannel(1);
+    //JS1.setZChannel(4);
   }
 
 
