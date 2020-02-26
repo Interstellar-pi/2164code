@@ -26,6 +26,7 @@ import frc.robot.commands.woftoggle;
 import frc.robot.subsystems.collector;
 import frc.robot.subsystems.drivetrain;
 import frc.robot.subsystems.lift;
+import frc.robot.subsystems.shooter;
 import frc.robot.subsystems.wofarm;
 
 /**
@@ -38,11 +39,12 @@ public class RobotContainer {
   private final autoncommand ac_Autoncommand = new autoncommand();
   private final drivetrain s_Drivetrain = new drivetrain();
   private final collector s_Collector = new collector();
-    private final collect c_Collect = new collect(s_Collector);
-    private final shoot c_Shoot = new shoot(s_Collector);
-    private final collectoridle c_Collectoridle = new collectoridle(s_Collector);
     private final collectorup c_Collectorup = new collectorup(s_Collector);
     private final collectordown c_Collectordown = new collectordown(s_Collector);
+  private final shooter s_Shooter = new shooter();
+  private final collect c_Collect = new collect(s_Shooter);
+  private final shoot c_Shoot = new shoot(s_Shooter);
+  private final collectoridle c_Collectoridle = new collectoridle(s_Shooter);
   private final lift s_Lift = new lift();
     private final liftidle c_Liftidle = new liftidle(s_Lift);
     private final climb c_Climb = new climb(s_Lift);
@@ -69,7 +71,7 @@ public class RobotContainer {
     s_Drivetrain.setDefaultCommand(new RunCommand(() -> s_Drivetrain.drivectrl(drivestick.getY(), -drivestick.getZ()), s_Drivetrain));
     s_Lift.setDefaultCommand(c_Liftidle);
     s_Wofarm.setDefaultCommand(c_Wofidle);
-    s_Collector.setDefaultCommand(c_Collectoridle);
+    s_Shooter.setDefaultCommand(c_Collectoridle);
     s_Collector.ereset();
 
 

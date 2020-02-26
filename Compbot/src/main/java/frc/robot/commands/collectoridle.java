@@ -2,16 +2,16 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.collector;
+import frc.robot.subsystems.shooter;
 
 public class collectoridle extends CommandBase {
-  private final collector s_Collector;
+  private final shooter s_Shooter;
   /**
    * Creates a new collecteridle.
    */
-  public collectoridle(collector subsystem) {
+  public collectoridle(shooter subsystem) {
 
-    s_Collector = subsystem;
+    s_Shooter = subsystem;
     addRequirements(subsystem);
 
   }
@@ -22,8 +22,7 @@ public class collectoridle extends CommandBase {
 
   @Override
   public void execute() {
-    s_Collector.idle();
-    s_Collector.armpos();
+    s_Shooter.idle();
   }
 
   @Override

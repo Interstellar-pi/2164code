@@ -9,14 +9,14 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
-import frc.robot.subsystems.collector;
+import frc.robot.subsystems.shooter;
 
 public class collect extends CommandBase {
-  private final collector s_Collector;
+  private final shooter s_Shooter;
 
-  public collect(collector subsystem) {
+  public collect(shooter subsystem) {
     
-    s_Collector = subsystem;
+    s_Shooter = subsystem;
     addRequirements(subsystem);
   }
 
@@ -28,7 +28,7 @@ public class collect extends CommandBase {
   
   @Override
   public void execute() {
-    s_Collector.collect(Constants.CollectorConstants.rollerinverted);
+    s_Shooter.collect(Constants.CollectorConstants.rollerinverted);
   }
 
   

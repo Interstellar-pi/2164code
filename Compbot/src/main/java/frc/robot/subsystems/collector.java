@@ -20,7 +20,6 @@ import frc.robot.Constants;
 
 public class collector extends PIDSubsystem {
 
-  private WPI_TalonSRX m_roller = new WPI_TalonSRX(Constants.CollectorConstants.rollermotor);
   private CANSparkMax m_pitch = new CANSparkMax(Constants.CollectorConstants.pitchmotor, MotorType.kBrushed);
   private Encoder e_PitchEncoder = new Encoder(Constants.CollectorConstants.sensorPorts[0],
                                                Constants.CollectorConstants.sensorPorts[1]);
@@ -31,23 +30,23 @@ public class collector extends PIDSubsystem {
   public collector() {
     super(
         // The PIDController used by the subsystem
-        new PIDController(0.1, 0.01, 0.0));
+        new PIDController(0.5, 0.1, 0.05));
         getController().setTolerance(30);
         setSetpoint(0.0);
-        enable();
   }
 
   @Override
   public void useOutput(double output, double setpoint) {
 
-    if(output > 0.5){
-      output = 0.5;
-    } 
-    if(output > -0.5){
+    if(output >= 0.3) {
+      output = 0.3;
+    }else if(output <= -0.5) {
       output = -0.5;
-    } 
+    }
+
     m_pitch.set(-output);
     SmartDashboard.putNumber("Output", output);
+    armpos();
   }
     // Use the output here
   
@@ -63,31 +62,14 @@ public class collector extends PIDSubsystem {
     e_PitchEncoder.reset();
   }
 
-  public void collect(boolean inverted) {
-    m_roller.setInverted(inverted);
-    m_roller.set(ControlMode.PercentOutput, -1.0);
-
-  }
-
-  public void idle()  {
-    m_roller.set(0);
-  }
-
-  public void shoot(boolean inverted) {
-    m_roller.setInverted(inverted);
-    m_roller.set(ControlMode.PercentOutput, 1.0);
-  }
-/*
-  public void changeSetpoint(double setpoint) {
-    super.setSetpoint(setpoint);
-  }
-*/
   public void uppos()  {
     super.getController().setSetpoint(-84.75);
+    super.enable();
   }
 
   public void dwnpos()  {
     super.getController().setSetpoint(-418.75);
+    super.enable();
   }
 
   public void armpos()  {
