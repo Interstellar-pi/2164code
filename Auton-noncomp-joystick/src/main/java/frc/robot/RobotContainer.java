@@ -109,7 +109,7 @@ public class RobotContainer {
      JoystickButton shift = new JoystickButton(joy, 1);
     shift.toggleWhenPressed(HighGear);
     joy.setYChannel(1);
-    joy.setZChannel(5);
+    joy.setZChannel(2);
   }
 
 
