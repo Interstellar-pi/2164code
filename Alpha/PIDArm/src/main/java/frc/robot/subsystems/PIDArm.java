@@ -7,9 +7,7 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.DigitalOutput;
-import edu.wpi.first.wpilibj.DigitalSource;
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.controller.PIDController;
@@ -27,13 +25,13 @@ public class PIDArm extends PIDSubsystem {
   //private final CANEncoder ArmEncoder = new CANEncoder(PitchMotor);
   //private final CANEncoder ArmEncoder = PitchMotor.getEncoder(EncoderType.kQuadrature, 8192);
   private final Encoder ArmEncoder = new Encoder(ArmConstants.EncoderPorts[0], ArmConstants.EncoderPorts[1], false, EncodingType.k4X);
-  private final DigitalSource AbsArmEncoder = new DigitalOutput(3);
+  private final AnalogInput AbsArmEncoder = new AnalogInput(ArmConstants.AbsEncoderPort);
   //Starting position reset at 0, fully down is -418.75, fully up in game position is -84.75
 
   public PIDArm() {
     super(
         // The PIDController used by the subsystem
-        new PIDController(0.5, .1, 0.02));
+        new PIDController(0.5, .1, 0.05));
         setSetpoint(0);
         getController().setTolerance(15);
         //getController().set
@@ -43,8 +41,10 @@ public class PIDArm extends PIDSubsystem {
 
   @Override
   public void useOutput(double output, double setpoint) {
-    if(output >= 0.5) {
-      output = 0.5;
+    if(output >= 0.3) {
+      output = 0.3;
+    }else if(output <= -0.5) {
+      output = -0.5;
     }
     if(getController().atSetpoint() == true) {
       output = 0;
@@ -57,6 +57,7 @@ public class PIDArm extends PIDSubsystem {
   @Override
   public double getMeasurement() {
     SmartDashboard.putNumber("EncoderValue", ArmEncoder.getDistance());
+    SmartDashboard.putNumber("AbsEncoderValue", AbsArmEncoder.getVoltage());
     // Return the process variable measurement here
     return ArmEncoder.getDistance();
   }

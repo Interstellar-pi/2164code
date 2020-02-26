@@ -30,5 +30,6 @@ public final class Constants {
     public static class ArmConstants {
         public static final int CAN_Pitch = 9;
         public static final int[] EncoderPorts = {4,5};
+        public static final int AbsEncoderPort = 0;
     }
 }
