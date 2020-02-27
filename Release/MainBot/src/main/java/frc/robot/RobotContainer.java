@@ -69,11 +69,11 @@ public class RobotContainer {
   private final DriveTrain rc_DriveTrain = new DriveTrain();
   private final Drive rc_Drive = new Drive(rc_DriveTrain, JS1);
   private final LiftExtender rc_LiftExtender = new LiftExtender();
-  private final LiftExtend rc_LiftExtend = new LiftExtend(rc_LiftExtender);
+  private final LiftExtend rc_LiftExtend = new LiftExtend(rc_LiftExtender, JS1);
   private final LiftExtenderIdle rc_LiftExtenderIdle = new LiftExtenderIdle(rc_LiftExtender);
   private final LiftExtenderRetract rc_LiftExtenderRetract = new LiftExtenderRetract(rc_LiftExtender);
   private final LiftWincher rc_LiftWincher = new LiftWincher();
-  private final LiftWinch rc_LiftWinch = new LiftWinch(rc_LiftWincher);
+  private final LiftWinch rc_LiftWinch = new LiftWinch(rc_LiftWincher, JS1);
   private final LiftWincherIdle rc_LiftWincherIdle = new LiftWincherIdle(rc_LiftWincher);
   private final LiftWincherLoosen rc_LiftWincherLoosen = new LiftWincherLoosen(rc_LiftWincher);
   private final WoFArm rc_WoFArm = new WoFArm();

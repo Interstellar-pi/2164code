@@ -37,5 +37,6 @@ public final class Constants {
         public static final int LogitechJoy = 0;
         public static final int y_axis = 1;
         public static final int z_axis = 4;
+        public static final int Turn_R = 2;
     }
 }

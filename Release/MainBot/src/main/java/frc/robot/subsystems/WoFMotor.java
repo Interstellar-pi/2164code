@@ -18,7 +18,7 @@ public class WoFMotor extends SubsystemBase {
   private final WPI_TalonSRX SpinMotor = new WPI_TalonSRX(WoFConstants.CAN_Spin);
 
   public void WoFSpin(){
-    SpinMotor.set(ControlMode.PercentOutput, 0.5);
+    SpinMotor.set(ControlMode.PercentOutput, 0.35);
     //SpinMotor.set(0.5);
   }
 

@@ -17,12 +17,12 @@ public class LiftExtender extends SubsystemBase {
 
   private final WPI_VictorSPX ExtensionMotor = new WPI_VictorSPX(LiftConstants.CAN_Extend);
 
-  public void LiftExtend(){
-    ExtensionMotor.set(ControlMode.PercentOutput, 0.25);
+  public void LiftExtend(double x){
+    ExtensionMotor.set(ControlMode.PercentOutput, -x*.5);
   }
 
   public void LiftExtendReverse(){
-    ExtensionMotor.set(ControlMode.PercentOutput, -0.25);
+    ExtensionMotor.set(ControlMode.PercentOutput, .25);
   }
 
   public void LiftExtendIdle(){

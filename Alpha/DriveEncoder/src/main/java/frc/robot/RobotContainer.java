@@ -11,8 +11,10 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.OIConstants;
 import frc.robot.commands.Drive;
+import frc.robot.commands.Turn_R;
 import frc.robot.subsystems.DriveTrain;
 
 /**
@@ -23,9 +25,11 @@ import frc.robot.subsystems.DriveTrain;
  */
 public class RobotContainer {
   public Joystick LogitechJoy = new Joystick(OIConstants.LogitechJoy);
+  public JoystickButton Turn_RButton = new JoystickButton(LogitechJoy, OIConstants.Turn_R);
   // The robot's subsystems and commands are defined here...
   private final DriveTrain rc_DriveTrain = new DriveTrain();
   private final Drive rc_Drive = new Drive(rc_DriveTrain, LogitechJoy);
+  private final Turn_R rc_Turn_R = new Turn_R(rc_DriveTrain);
 
 
 
@@ -47,6 +51,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
     LogitechJoy.setYChannel(OIConstants.y_axis);
     LogitechJoy.setZChannel(OIConstants.z_axis);
+    Turn_RButton.whenPressed(rc_Turn_R);
   }
 
 
