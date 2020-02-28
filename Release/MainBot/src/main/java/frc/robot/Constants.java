@@ -44,15 +44,21 @@ public final class Constants {
 
     public static class OIConstants{
         public static final int JS1 = 0; //Joystick 1 Port
+        //public static final int x_axis = 0;
+        //public static final int y_axis = 1;
+        //public static final int z_axis = 5;
+        public static final int JS2 = 1; //Logitech Secondary
         public static final int ArmUpButton = 5; //Joystick 1 ArmUp
         public static final int ArmDownButton = 3; //Joystick 1 ArmDown
         public static final int CollectorIntakeButton = 2; //Joystick 1 CollectorIntake
         public static final int CollectorShootButton = 1; //Joystick 1 CollectorShoot
-        public static final int LiftExtendButton = 6; //Joystick 1 LiftExtend
-        public static final int LiftExtenderRetractButton = 11; //Joystick 1 LiftExtenderRetract
-        public static final int LiftWinchButton = 4; //Joystick 1 LiftWinch
-        public static final int LiftWincherLoosenButton = 12; //Joystick 1 LiftWincherLoosen
-        public static final int WoFArmToggleButton = 9; //Joystick 1 WoFArmToggle
-        public static final int WoFMotorSpinButton = 10; //Joystick 1 WoFMotorSpin
+        public static final int LiftExtendButton = 6; //Joystick 2 LiftExtend
+        public static final int LiftExtendAxis = 3; 
+        public static final int LiftExtenderRetractButton = 11; //Joystick 2 LiftExtenderRetract
+        public static final int LiftExtenderRetractAxis = 2;
+        public static final int LiftWinchButton = 6; //Joystick 2 LiftWinch
+        //public static final int LiftWincherLoosenButton = 12; //Joystick 2 LiftWincherLoosen
+        public static final int WoFArmToggleButton = 2; //Joystick 2 WoFArmToggle
+        public static final int WoFMotorSpinButton = 1; //Joystick 2 WoFMotorSpin
     }
 }

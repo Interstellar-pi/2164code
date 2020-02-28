@@ -46,16 +46,17 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 public class RobotContainer {
   //Define OI here
   public Joystick JS1 = new Joystick(OIConstants.JS1);
+  public Joystick JS2 = new Joystick(OIConstants.JS2);
   public JoystickButton ArmDownButton = new JoystickButton(JS1, OIConstants.ArmDownButton);
   public JoystickButton ArmUpButton = new JoystickButton(JS1, OIConstants.ArmUpButton);
   public JoystickButton CollectorShootButton = new JoystickButton(JS1, OIConstants.CollectorShootButton);
   public JoystickButton CollectorIntakeButton = new JoystickButton(JS1, OIConstants.CollectorIntakeButton);
-  public JoystickButton LiftExtendButton = new JoystickButton(JS1, OIConstants.LiftExtendButton);
-  public JoystickButton LiftExtenderRetractButton = new JoystickButton(JS1, OIConstants.LiftExtenderRetractButton);
-  public JoystickButton LiftWinchButton = new JoystickButton(JS1, OIConstants.LiftWinchButton);
-  public JoystickButton LiftWincherLoosenButton = new JoystickButton(JS1, OIConstants.LiftWincherLoosenButton);
-  public JoystickButton WoFArmToggleButton = new JoystickButton(JS1, OIConstants.WoFArmToggleButton);
-  public JoystickButton WoFMotorSpinButton = new JoystickButton(JS1, OIConstants.WoFMotorSpinButton);
+  public JoystickButton LiftExtendButton = new JoystickButton(JS2, OIConstants.LiftExtendButton);
+  public JoystickButton LiftExtenderRetractButton = new JoystickButton(JS2, OIConstants.LiftExtenderRetractButton);
+  public JoystickButton LiftWinchButton = new JoystickButton(JS2, OIConstants.LiftWinchButton);
+  //public JoystickButton LiftWincherLoosenButton = new JoystickButton(JS2, OIConstants.LiftWincherLoosenButton);
+  public JoystickButton WoFArmToggleButton = new JoystickButton(JS2, OIConstants.WoFArmToggleButton);
+  public JoystickButton WoFMotorSpinButton = new JoystickButton(JS2, OIConstants.WoFMotorSpinButton);
 
   // The robot's subsystems and commands are defined here...
   private final Arm rc_Arm = new Arm();
@@ -69,11 +70,11 @@ public class RobotContainer {
   private final DriveTrain rc_DriveTrain = new DriveTrain();
   private final Drive rc_Drive = new Drive(rc_DriveTrain, JS1);
   private final LiftExtender rc_LiftExtender = new LiftExtender();
-  private final LiftExtend rc_LiftExtend = new LiftExtend(rc_LiftExtender, JS1);
+  private final LiftExtend rc_LiftExtend = new LiftExtend(rc_LiftExtender, JS2);
   private final LiftExtenderIdle rc_LiftExtenderIdle = new LiftExtenderIdle(rc_LiftExtender);
   private final LiftExtenderRetract rc_LiftExtenderRetract = new LiftExtenderRetract(rc_LiftExtender);
   private final LiftWincher rc_LiftWincher = new LiftWincher();
-  private final LiftWinch rc_LiftWinch = new LiftWinch(rc_LiftWincher, JS1);
+  private final LiftWinch rc_LiftWinch = new LiftWinch(rc_LiftWincher, JS2);
   private final LiftWincherIdle rc_LiftWincherIdle = new LiftWincherIdle(rc_LiftWincher);
   private final LiftWincherLoosen rc_LiftWincherLoosen = new LiftWincherLoosen(rc_LiftWincher);
   private final WoFArm rc_WoFArm = new WoFArm();
@@ -93,8 +94,9 @@ public class RobotContainer {
     rc_Arm.setDefaultCommand(rc_ArmIdle);
     rc_Collector.setDefaultCommand(rc_CollectorIdle);
     rc_DriveTrain.setDefaultCommand(rc_Drive);
-    rc_LiftExtender.setDefaultCommand(rc_LiftExtenderIdle);
-    rc_LiftWincher.setDefaultCommand(rc_LiftWincherIdle);
+    rc_LiftExtender.setDefaultCommand(rc_LiftExtend);
+    //rc_LiftExtender.setDefaultCommand(rc_LiftExtenderIdle);
+    rc_LiftWincher.setDefaultCommand(rc_LiftWinch);
     rc_WoFMotor.setDefaultCommand(rc_WoFMotorIdle);
     // Configure the button bindings
     configureButtonBindings();
@@ -111,10 +113,10 @@ public class RobotContainer {
     ArmUpButton.whileHeld(rc_ArmUp);
     CollectorIntakeButton.whileHeld(rc_CollectorIntake);
     CollectorShootButton.whileHeld(rc_CollectorShoot);
-    LiftExtendButton.whileHeld(rc_LiftExtend);
-    LiftExtenderRetractButton.whileHeld(rc_LiftExtenderRetract);
-    LiftWinchButton.whileHeld(rc_LiftWinch);
-    LiftWincherLoosenButton.whileHeld(rc_LiftWincherLoosen);
+    //LiftExtendButton.whileHeld(rc_LiftExtend);
+    //LiftExtenderRetractButton.whileHeld(rc_LiftExtenderRetract);
+    //LiftWinchButton.whileHeld(rc_LiftWinch);
+    //LiftWincherLoosenButton.whileHeld(rc_LiftWincherLoosen);
     WoFArmToggleButton.whenPressed(rc_WoFArmToggle);
     WoFMotorSpinButton.whileHeld(rc_WoFMotorSpin);
     //JS1.setYChannel(1);

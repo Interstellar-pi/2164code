@@ -33,7 +33,7 @@ public class LiftWinch extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_liftwincher.LiftWinch(l_joystick.getRawAxis(3));
+    l_liftwincher.LiftWinch(l_joystick.getRawAxis(2));
   }
 
   // Called once the command ends or is interrupted.

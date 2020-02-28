@@ -18,11 +18,11 @@ public class Collector extends SubsystemBase {
   private final WPI_TalonSRX IntakeMotor = new WPI_TalonSRX(ArmConstants.CAN_Intake);
 
   public void Intake(){
-    IntakeMotor.set(ControlMode.PercentOutput, -0.8);
+    IntakeMotor.set(ControlMode.PercentOutput, -1.0);
   }
 
   public void Shoot(){
-    IntakeMotor.set(ControlMode.PercentOutput, 0.8);
+    IntakeMotor.set(ControlMode.PercentOutput, 1.0);
   }
 
   public void CollecterIdle(){

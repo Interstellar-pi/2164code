@@ -18,7 +18,7 @@ public class LiftWincher extends SubsystemBase {
   private final WPI_VictorSPX WinchMotor = new WPI_VictorSPX(LiftConstants.CAN_Winch);
 
   public void LiftWinch(double x){
-    WinchMotor.set(ControlMode.PercentOutput, x*.5);
+    WinchMotor.set(ControlMode.PercentOutput, x);
   }
 
   public void LiftWinchReverse(){

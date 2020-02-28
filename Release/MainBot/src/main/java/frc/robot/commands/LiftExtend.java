@@ -33,7 +33,7 @@ public class LiftExtend extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_liftextender.LiftExtend(l_joystick.getRawAxis(2));
+    l_liftextender.LiftExtend(l_joystick.getRawAxis(3));
   }
 
   // Called once the command ends or is interrupted.
