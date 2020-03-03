@@ -40,4 +40,6 @@ public final class Constants {
 	public static final double kFF = 0;
 	public static final double kminout = 0;
 	public static final double kmaxout = 0;
+	public static final double ArmUpPoint = 0;
+	public static final double ArmDownPoint = 0;
 }
