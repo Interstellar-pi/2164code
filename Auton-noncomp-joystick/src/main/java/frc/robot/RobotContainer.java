@@ -44,14 +44,9 @@ import frc.robot.subsystems.lift;
  */
 public class RobotContainer {
   public static Joystick joy = new Joystick(Constants.JoystickID);
-<<<<<<< HEAD
-  // The robot's subsystems and commands are defined here...
-  private static JoystickButton InButton = new JoystickButton(joy, 3);
-=======
   public static XboxController joy2 = new XboxController(1);
   // The robot's subsystems and commands are defined here...
-  private static JoystickButton InButton = new JoystickButton(joy, 2);
->>>>>>> 109ea7f6cdbd46a95d6324175708edd3b82c3b63
+  private static JoystickButton InButton = new JoystickButton(joy, 3);
   private static JoystickButton OutButton = new JoystickButton(joy, 4);
   public final static DriveTrain S_Drive = new DriveTrain();
   private final normalDrive C_Drive = new normalDrive(S_Drive, joy);
@@ -77,11 +72,8 @@ public class RobotContainer {
   public final static Drive10Feet TenF = new Drive10Feet(S_Drive);
   public static final JoystickButton TenFB = new JoystickButton(joy,2);
   public static final DriveTrainReset Reset = new DriveTrainReset(S_Drive);
-<<<<<<< HEAD
-=======
   //public static final JoystickButton LiftU = new JoystickButton(joy2, 4);
   //public static final JoystickButton LiftD = new JoystickButton(joy2, 2);
->>>>>>> 109ea7f6cdbd46a95d6324175708edd3b82c3b63
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
@@ -102,11 +94,8 @@ public class RobotContainer {
     OutButton.whileActiveContinuous(O_Ball);
     Solenoid.toggleWhenPressed(PM_out);
     //TenFB.toggleWhenPressed(TenF);
-<<<<<<< HEAD
-=======
     //LiftU.whileActiveContinuous(C_liftU);
     //LiftD.whileActiveContinuous(C_liftD);
->>>>>>> 109ea7f6cdbd46a95d6324175708edd3b82c3b63
   }
  
 
@@ -119,11 +108,8 @@ public class RobotContainer {
   private void configureButtonBindings() {
      JoystickButton shift = new JoystickButton(joy, 1);
     shift.toggleWhenPressed(HighGear);
-<<<<<<< HEAD
-=======
     joy.setYChannel(1);
-    joy.setZChannel(5);
->>>>>>> 109ea7f6cdbd46a95d6324175708edd3b82c3b63
+    joy.setZChannel(2);
   }
 
 
