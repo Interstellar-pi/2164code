@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -25,6 +26,7 @@ public class DriveTrain extends SubsystemBase {
   private static SpeedControllerGroup Right = new SpeedControllerGroup(FrontRight, RearRight);
   private static SpeedControllerGroup Left = new SpeedControllerGroup(FrontLeft, RearLeft);
   private static DifferentialDrive DriveTrain = new DifferentialDrive(Left, Right);
+  private static AnalogGyro Gyro = new AnalogGyro(0);
   /**
    * Creates a new DriveTrain.
    */
@@ -33,6 +35,7 @@ public class DriveTrain extends SubsystemBase {
     LeftEncoder.reset();
     RightEncoder.setDistancePerPulse(Constants.RightPerPulse);
     LeftEncoder.setDistancePerPulse(Constants.LeftPerPulse);
+    Gyro.calibrate();
   }
   public static void NormalDrive (double Speed,double Turn){
     DriveTrain.arcadeDrive(Speed, -Turn);

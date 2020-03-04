@@ -42,4 +42,11 @@ public final class Constants {
 	public static final double kmaxout = 0;
 	public static final double ArmUpPoint = 0;
 	public static final double ArmDownPoint = 0;
+	public static final double ArmkP = 0;
+	public static final double ArmkI = 0;
+	public static final double ArmkD = 0;
+	public static final double ArmkIz = 0;
+	public static final double ArmkFF = 0;
+	public static final double Armkminout = 0;
+	public static final double Armkmaxout = 0;
 }

@@ -24,15 +24,19 @@ public class Arm extends SubsystemBase {
    * Creates a new Arm.
    */
   public Arm() {
-    PID.setP(Constants.kP);
-    PID.setI(Constants.kI);
-    PID.setD(Constants.kD);
-    PID.setIZone(Constants.kIz);
-    PID.setFF(Constants.kFF);
-    PID.setOutputRange(Constants.kminout, Constants.kmaxout);
+    PID.setP(Constants.ArmkP);
+    PID.setI(Constants.ArmkI);
+    PID.setD(Constants.ArmkD);
+    PID.setIZone(Constants.ArmkIz);
+    PID.setFF(Constants.ArmkFF);
+    PID.setOutputRange(Constants.Armkminout, Constants.Armkmaxout);
+    
   }
   public static void move (double setpoint){
     PID.setReference(setpoint, ControlType.kVelocity);
+  }
+  public boolean IsClose(){
+    return false;
   }
   @Override
   public void periodic() {
