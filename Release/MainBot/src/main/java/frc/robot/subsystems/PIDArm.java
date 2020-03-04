@@ -43,8 +43,8 @@ public class PIDArm extends PIDSubsystem {
   public void useOutput(double output, double setpoint) {
     if(output >= 0.3) {
       output = 0.3;
-    }else if(output <= -0.5) {
-      output = -0.5;
+    }else if(output <= -0.6) {
+      output = -0.6;
     }
     if(getController().atSetpoint() == true) {
       output = 0;
