@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.cscore.CvSink;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
@@ -95,11 +96,8 @@ public class RobotContainer {
     OutButton.whileActiveContinuous(O_Ball);
     Solenoid.toggleWhenPressed(PM_out);
     //TenFB.toggleWhenPressed(TenF);
-<<<<<<< HEAD
-=======
     //LiftU.whileActiveContinuous(C_liftU);
     //LiftD.whileActiveContinuous(C_liftD);
->>>>>>> 109ea7f6cdbd46a95d6324175708edd3b82c3b63
   }
  
 
@@ -112,11 +110,8 @@ public class RobotContainer {
   private void configureButtonBindings() {
      JoystickButton shift = new JoystickButton(joy, 1);
     shift.toggleWhenPressed(HighGear);
-<<<<<<< HEAD
-=======
     joy.setYChannel(1);
     joy.setZChannel(5);
->>>>>>> 109ea7f6cdbd46a95d6324175708edd3b82c3b63
   }
 
 
