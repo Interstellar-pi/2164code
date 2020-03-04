@@ -34,6 +34,7 @@ import frc.robot.subsystems.Collector;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.LiftExtender;
 import frc.robot.subsystems.LiftWincher;
+import frc.robot.subsystems.PIDArm;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
@@ -60,9 +61,10 @@ public class RobotContainer {
 
   // The robot's subsystems and commands are defined here...
   private final Arm rc_Arm = new Arm();
-  private final ArmDown rc_ArmDown = new ArmDown(rc_Arm);
+  private final PIDArm rc_PIDArm = new PIDArm();
+  private final ArmDown rc_ArmDown = new ArmDown(rc_PIDArm);
   private final ArmIdle rc_ArmIdle = new ArmIdle(rc_Arm);
-  private final ArmUp rc_ArmUp = new ArmUp(rc_Arm);
+  private final ArmUp rc_ArmUp = new ArmUp(rc_PIDArm);
   private final Collector rc_Collector = new Collector();
   private final CollectorIdle rc_CollectorIdle = new CollectorIdle(rc_Collector);
   private final CollectorIntake rc_CollectorIntake = new CollectorIntake(rc_Collector);

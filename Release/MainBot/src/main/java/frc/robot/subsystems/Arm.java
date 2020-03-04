@@ -15,20 +15,20 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 public class Arm extends SubsystemBase {
 
-  private final CANSparkMax PitchMotor = new CANSparkMax(ArmConstants.CAN_Pitch, MotorType.kBrushed);
+  //private final CANSparkMax PitchMotor = new CANSparkMax(ArmConstants.CAN_Pitch, MotorType.kBrushed);
 
   public void ArmUp(){
-    PitchMotor.set(-0.45);
+    //PitchMotor.set(-0.45);
     //PitchMotor.set(ControlMode.PercentOutput, 0.5);
   }
 
   public void ArmDown(){
-    PitchMotor.set(0.45);
+    //PitchMotor.set(0.45);
     //PitchMotor.set(ControlMode.PercentOutput, -0.5);
   }
 
   public void ArmIdle(){
-    PitchMotor.set(0.0);
+    //PitchMotor.set(0.0);
     //PitchMotor.set(ControlMode.PercentOutput, 0);
   }
 
@@ -36,8 +36,8 @@ public class Arm extends SubsystemBase {
 
   }
 
-  @Override
-  public void periodic() {
+  //@Override
+  //public void periodic() {
     // This method will be called once per scheduler run
-  }
+  //}
 }

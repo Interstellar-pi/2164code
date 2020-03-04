@@ -8,16 +8,16 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Arm;
+import frc.robot.subsystems.PIDArm;
 
 public class ArmDown extends CommandBase {
 
-  private final Arm l_arm;
+  private final PIDArm l_pidarm;
   /**
    * Creates a new ArmDown.
    */
-  public ArmDown(Arm subsystem) {
-    l_arm = subsystem;
+  public ArmDown(PIDArm subsystem) {
+    l_pidarm = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -30,7 +30,7 @@ public class ArmDown extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    l_arm.ArmDown();
+    l_pidarm.Setpoint(-418.75);
   }
 
   // Called once the command ends or is interrupted.
