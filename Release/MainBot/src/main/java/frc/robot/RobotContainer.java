@@ -93,7 +93,7 @@ public class RobotContainer {
 
   public RobotContainer() {
     // Default Command
-    rc_Arm.setDefaultCommand(rc_ArmIdle);
+    //rc_Arm.setDefaultCommand(rc_ArmIdle);
     rc_Collector.setDefaultCommand(rc_CollectorIdle);
     rc_DriveTrain.setDefaultCommand(rc_Drive);
     rc_LiftExtender.setDefaultCommand(rc_LiftExtend);
