@@ -8,23 +8,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.DriveTrain;
 
-public class GoLeft1 extends CommandBase {
+public class goLeft extends CommandBase {
   /**
-   * Creates a new GoLeft1.
+   * Creates a new goLeft.
    */
-  DriveTrain subsystem;
-  public GoLeft1(DriveTrain Subsystem) {
+  public goLeft() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Subsystem);
-    subsystem = Subsystem;
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    
   }
 
   // Called every time the scheduler runs while the command is scheduled.
